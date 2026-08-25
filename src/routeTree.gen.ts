@@ -10,33 +10,89 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ExamplesIndexRouteImport } from './routes/examples/index'
+import { Route as ExamplesButtonRouteImport } from './routes/examples/button'
+import { Route as ExamplesDropdownRouteImport } from './routes/examples/dropdown'
+import { Route as ExamplesSnackbarRouteImport } from './routes/examples/snackbar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ExamplesIndexRoute = ExamplesIndexRouteImport.update({
+  id: '/examples/',
+  path: '/examples/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplesButtonRoute = ExamplesButtonRouteImport.update({
+  id: '/examples/button',
+  path: '/examples/button',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplesDropdownRoute = ExamplesDropdownRouteImport.update({
+  id: '/examples/dropdown',
+  path: '/examples/dropdown',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamplesSnackbarRoute = ExamplesSnackbarRouteImport.update({
+  id: '/examples/snackbar',
+  path: '/examples/snackbar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/examples/button': typeof ExamplesButtonRoute
+  '/examples/dropdown': typeof ExamplesDropdownRoute
+  '/examples/snackbar': typeof ExamplesSnackbarRoute
+  '/examples/': typeof ExamplesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/examples/button': typeof ExamplesButtonRoute
+  '/examples/dropdown': typeof ExamplesDropdownRoute
+  '/examples/snackbar': typeof ExamplesSnackbarRoute
+  '/examples': typeof ExamplesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/examples/button': typeof ExamplesButtonRoute
+  '/examples/dropdown': typeof ExamplesDropdownRoute
+  '/examples/snackbar': typeof ExamplesSnackbarRoute
+  '/examples/': typeof ExamplesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/examples/button'
+    | '/examples/dropdown'
+    | '/examples/snackbar'
+    | '/examples/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/examples/button'
+    | '/examples/dropdown'
+    | '/examples/snackbar'
+    | '/examples'
+  id:
+    | '__root__'
+    | '/'
+    | '/examples/button'
+    | '/examples/dropdown'
+    | '/examples/snackbar'
+    | '/examples/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ExamplesButtonRoute: typeof ExamplesButtonRoute
+  ExamplesDropdownRoute: typeof ExamplesDropdownRoute
+  ExamplesSnackbarRoute: typeof ExamplesSnackbarRoute
+  ExamplesIndexRoute: typeof ExamplesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +104,43 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/examples/': {
+      id: '/examples/'
+      path: '/examples'
+      fullPath: '/examples/'
+      preLoaderRoute: typeof ExamplesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/examples/button': {
+      id: '/examples/button'
+      path: '/examples/button'
+      fullPath: '/examples/button'
+      preLoaderRoute: typeof ExamplesButtonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/examples/dropdown': {
+      id: '/examples/dropdown'
+      path: '/examples/dropdown'
+      fullPath: '/examples/dropdown'
+      preLoaderRoute: typeof ExamplesDropdownRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/examples/snackbar': {
+      id: '/examples/snackbar'
+      path: '/examples/snackbar'
+      fullPath: '/examples/snackbar'
+      preLoaderRoute: typeof ExamplesSnackbarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ExamplesButtonRoute: ExamplesButtonRoute,
+  ExamplesDropdownRoute: ExamplesDropdownRoute,
+  ExamplesSnackbarRoute: ExamplesSnackbarRoute,
+  ExamplesIndexRoute: ExamplesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

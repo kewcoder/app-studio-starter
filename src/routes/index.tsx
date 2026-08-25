@@ -4,22 +4,30 @@ import { useHitPayUser } from '#/lib/hitpay'
 export const Route = createFileRoute('/')({ component: Home })
 
 function Home() {
-  const { user, error } = useHitPayUser()
-  const displayName = user?.name?.trim() || user?.email || 'Signed in'
-  const roleTitle = user?.role?.title ?? null
+  const { user } = useHitPayUser()
+  const displayName = user?.name?.trim() || user?.email || null
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-4xl flex-col gap-4 px-6 py-10">
-      <h1 className="text-xl font-medium text-[#03102f]">Your app is being prepared</h1>
-      <p className="text-sm text-[#61667c]">
-        {error ??
-          "We're setting up your workspace. Keep chatting — this screen will update when your app is ready."}
-      </p>
-      {user ? (
-        <p className="text-sm text-[#9295a5]">
-          {roleTitle ? `${displayName} · ${roleTitle}` : displayName}
+    <main className="fixed inset-0 flex items-center justify-center bg-muted">
+      <div className="flex w-full max-w-[400px] flex-col items-center px-6 text-center">
+        <div className="mb-8 flex size-14 items-center justify-center rounded-2xl bg-primary shadow-lg">
+          <span className="size-6 animate-spin rounded-full border-2 border-primary-foreground/40 border-t-primary-foreground" />
+        </div>
+
+        <p className="text-xs font-medium tracking-[0.14em] text-primary uppercase">
+          App Studio
         </p>
-      ) : null}
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-foreground">
+          Preparing your app
+        </h1>
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+          Please wait a moment. Your app is being prepared and should be ready in a few minutes.
+        </p>
+
+        {displayName ? (
+          <p className="mt-8 text-xs text-muted-foreground">Signed in as {displayName}</p>
+        ) : null}
+      </div>
     </main>
   )
 }
