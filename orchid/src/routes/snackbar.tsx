@@ -11,7 +11,7 @@ import {
   SnackbarTitle,
 } from '@/components/ui/snackbar'
 
-export const Route = createFileRoute('/examples/snackbar')({
+export const Route = createFileRoute('/snackbar')({
   component: SnackbarExamplesPage,
 })
 

@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export const Route = createFileRoute('/examples/dropdown')({
+export const Route = createFileRoute('/dropdown')({
   component: DropdownExamplesPage,
 })
 

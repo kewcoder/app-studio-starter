@@ -12,8 +12,3 @@ dist-ssr
 .vinxi
 __unconfig*
 todos.json
-app/node_modules
-app/.nitro
-app/.output
-app/.tanstack
-app/.env

@@ -4,7 +4,7 @@ import { DocHeader } from '@/components/examples/doc-header'
 import { Button } from '@/components/ui/button'
 import { DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
 
-export const Route = createFileRoute('/examples/button')({
+export const Route = createFileRoute('/button')({
   component: ButtonExamplesPage,
 })
 

@@ -4,7 +4,7 @@ export function DocHeader({ crumb }: { crumb: string }) {
   return (
     <header className="flex items-center justify-between bg-black px-6 py-4 text-white">
       <div className="flex items-baseline gap-2">
-        <Link to="/examples" className="text-sm text-white/60 hover:text-white">
+        <Link to="/" className="text-sm text-white/60 hover:text-white">
           Orchid UI
         </Link>
         <span className="text-sm text-white/40">→</span>

@@ -1,23 +1,23 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { DocHeader } from '@/components/examples/doc-header'
 
-export const Route = createFileRoute('/examples/')({
+export const Route = createFileRoute('/')({
   component: ExamplesIndexPage,
 })
 
 const COMPONENTS = [
   {
-    to: '/examples/button' as const,
+    to: '/button' as const,
     name: 'Button',
     description: 'Type, Style, Size, Default/Disabled, icon-only, and additional action.',
   },
   {
-    to: '/examples/dropdown' as const,
+    to: '/dropdown' as const,
     name: 'Dropdown',
     description: 'Item states and grouped or ungrouped menus.',
   },
   {
-    to: '/examples/snackbar' as const,
+    to: '/snackbar' as const,
     name: 'Snack Bar',
     description: 'Small/Default as floating toasts; Big with close and actions.',
   },
