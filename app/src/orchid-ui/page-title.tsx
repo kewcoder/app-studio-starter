@@ -1,7 +1,7 @@
-import { useState, type ComponentProps, type ReactNode } from 'react'
-import { CopyIcon } from 'lucide-react'
+import type { ComponentProps, ReactNode } from 'react'
 
 import { cn } from '@/lib/utils'
+import { CopyTooltip } from './copy-tooltip'
 
 function PageTitle({
   className,
@@ -20,8 +20,6 @@ function PageTitle({
   actions?: ReactNode
   loading?: boolean
 }) {
-  const [copied, setCopied] = useState(false)
-
   return (
     <div
       data-slot="page-title"
@@ -42,25 +40,7 @@ function PageTitle({
         ) : description ? (
           <div className="flex min-w-0 items-center gap-2">
             <p className="min-w-0 text-[14px] leading-5 text-muted-foreground">{description}</p>
-            {copyValue ? (
-              <button
-                type="button"
-                aria-label="Copy"
-                className="relative inline-flex size-4 shrink-0 items-center justify-center outline-none"
-                onClick={async () => {
-                  await navigator.clipboard.writeText(copyValue)
-                  setCopied(true)
-                  window.setTimeout(() => setCopied(false), 1200)
-                }}
-              >
-                <CopyIcon className="size-4 text-muted-foreground" />
-                {copied ? (
-                  <span className="absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded bg-neutral px-2 py-1 text-xs font-medium whitespace-nowrap text-muted-foreground shadow-[0_1px_3px_rgba(0,0,0,0.1),0_3px_22px_rgba(38,42,50,0.09)]">
-                    Copied !
-                  </span>
-                ) : null}
-              </button>
-            ) : null}
+            {copyValue ? <CopyTooltip value={copyValue} /> : null}
           </div>
         ) : null}
       </div>

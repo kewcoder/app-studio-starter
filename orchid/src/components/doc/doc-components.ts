@@ -85,6 +85,11 @@ export const DOC_COMPONENTS = [
     description: 'Icon cluster with Default and Border; dropdown, link, and copy.',
   },
   {
+    to: '/copy-tooltip' as const,
+    name: 'Copy Tooltip',
+    description: 'Copy icon that writes a value and shows Copied!.',
+  },
+  {
     to: '/customer-card' as const,
     name: 'Customer Card',
     description: 'Small, Big, and Float customer or beneficiary cards.',

@@ -1,7 +1,8 @@
-import { useState, type ComponentProps, type ReactNode } from 'react'
-import { CopyIcon, EllipsisIcon, PencilIcon, Trash2Icon } from 'lucide-react'
+import type { ComponentProps, ReactNode } from 'react'
+import { EllipsisIcon, PencilIcon, Trash2Icon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { CopyTooltip } from './copy-tooltip'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from './dropdown-menu'
 
 function ListItem({
@@ -186,30 +187,15 @@ function ListItemCopyRow({
   label: string
   value: string
 }) {
-  const [copied, setCopied] = useState(false)
-
   return (
     <div data-slot="list-item-copy-row" className={cn('flex min-w-0 items-start gap-2 text-xs', className)}>
       <span className="shrink-0 font-medium leading-[1.5] text-muted-foreground">{label}</span>
       <span className="group/copy flex min-w-0 items-center gap-2">
         <span className="min-w-0 break-all leading-[1.5] text-foreground">{value}</span>
-        <button
-          type="button"
-          aria-label="Copy"
-          className="relative inline-flex size-4 shrink-0 items-center justify-center opacity-0 outline-none group-hover/copy:opacity-100"
-          onClick={async () => {
-            await navigator.clipboard.writeText(value)
-            setCopied(true)
-            window.setTimeout(() => setCopied(false), 1200)
-          }}
-        >
-          <CopyIcon className="size-4 text-foreground" />
-          {copied ? (
-            <span className="absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded bg-neutral px-2 py-1 text-xs font-medium whitespace-nowrap text-muted-foreground shadow-[0_1px_3px_rgba(0,0,0,0.1),0_3px_22px_rgba(38,42,50,0.09)]">
-              Copied !
-            </span>
-          ) : null}
-        </button>
+        <CopyTooltip
+          value={value}
+          className="text-foreground opacity-0 group-hover/copy:opacity-100"
+        />
       </span>
     </div>
   )

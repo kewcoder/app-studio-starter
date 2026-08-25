@@ -1,8 +1,8 @@
-import { createContext, useContext, useState, type ComponentProps, type ReactNode } from 'react'
+import { createContext, useContext, type ComponentProps, type ReactNode } from 'react'
 import { cva } from 'class-variance-authority'
-import { CopyIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
+import { CopyTooltip } from './copy-tooltip'
 
 const BoxDetailTypeContext = createContext<'Default' | 'Border'>('Default')
 
@@ -178,33 +178,9 @@ function BoxDetailRow({
         )}
       >
         <span className="min-w-0 break-words">{children}</span>
-        {copyValue ? <BoxDetailCopy value={copyValue} /> : null}
+        {copyValue ? <CopyTooltip value={copyValue} /> : null}
       </span>
     </div>
-  )
-}
-
-function BoxDetailCopy({ value }: { value: string }) {
-  const [copied, setCopied] = useState(false)
-
-  return (
-    <button
-      type="button"
-      aria-label="Copy"
-      className="relative inline-flex size-4 shrink-0 items-center justify-center outline-none"
-      onClick={async () => {
-        await navigator.clipboard.writeText(value)
-        setCopied(true)
-        window.setTimeout(() => setCopied(false), 1200)
-      }}
-    >
-      <CopyIcon className="size-4 text-muted-foreground" />
-      {copied ? (
-        <span className="absolute -top-8 left-1/2 z-20 -translate-x-1/2 rounded bg-neutral px-2 py-1 text-xs font-medium whitespace-nowrap text-muted-foreground shadow-[0_1px_3px_rgba(0,0,0,0.1),0_3px_22px_rgba(38,42,50,0.09)]">
-          Copied !
-        </span>
-      ) : null}
-    </button>
   )
 }
 

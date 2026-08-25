@@ -16,6 +16,7 @@ import { Route as BoxDetailRouteImport } from './routes/box-detail'
 import { Route as ButtonRouteImport } from './routes/button'
 import { Route as ChipRouteImport } from './routes/chip'
 import { Route as ClickableOptionRouteImport } from './routes/clickable-option'
+import { Route as CopyTooltipRouteImport } from './routes/copy-tooltip'
 import { Route as CustomerCardRouteImport } from './routes/customer-card'
 import { Route as DropdownRouteImport } from './routes/dropdown'
 import { Route as GroupIconRouteImport } from './routes/group-icon'
@@ -63,6 +64,11 @@ const ChipRoute = ChipRouteImport.update({
 const ClickableOptionRoute = ClickableOptionRouteImport.update({
   id: '/clickable-option',
   path: '/clickable-option',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CopyTooltipRoute = CopyTooltipRouteImport.update({
+  id: '/copy-tooltip',
+  path: '/copy-tooltip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CustomerCardRoute = CustomerCardRouteImport.update({
@@ -139,6 +145,7 @@ export interface FileRoutesByFullPath {
   '/button': typeof ButtonRoute
   '/chip': typeof ChipRoute
   '/clickable-option': typeof ClickableOptionRoute
+  '/copy-tooltip': typeof CopyTooltipRoute
   '/customer-card': typeof CustomerCardRoute
   '/dropdown': typeof DropdownRoute
   '/group-icon': typeof GroupIconRoute
@@ -161,6 +168,7 @@ export interface FileRoutesByTo {
   '/button': typeof ButtonRoute
   '/chip': typeof ChipRoute
   '/clickable-option': typeof ClickableOptionRoute
+  '/copy-tooltip': typeof CopyTooltipRoute
   '/customer-card': typeof CustomerCardRoute
   '/dropdown': typeof DropdownRoute
   '/group-icon': typeof GroupIconRoute
@@ -184,6 +192,7 @@ export interface FileRoutesById {
   '/button': typeof ButtonRoute
   '/chip': typeof ChipRoute
   '/clickable-option': typeof ClickableOptionRoute
+  '/copy-tooltip': typeof CopyTooltipRoute
   '/customer-card': typeof CustomerCardRoute
   '/dropdown': typeof DropdownRoute
   '/group-icon': typeof GroupIconRoute
@@ -208,6 +217,7 @@ export interface FileRouteTypes {
     | '/button'
     | '/chip'
     | '/clickable-option'
+    | '/copy-tooltip'
     | '/customer-card'
     | '/dropdown'
     | '/group-icon'
@@ -230,6 +240,7 @@ export interface FileRouteTypes {
     | '/button'
     | '/chip'
     | '/clickable-option'
+    | '/copy-tooltip'
     | '/customer-card'
     | '/dropdown'
     | '/group-icon'
@@ -252,6 +263,7 @@ export interface FileRouteTypes {
     | '/button'
     | '/chip'
     | '/clickable-option'
+    | '/copy-tooltip'
     | '/customer-card'
     | '/dropdown'
     | '/group-icon'
@@ -275,6 +287,7 @@ export interface RootRouteChildren {
   ButtonRoute: typeof ButtonRoute
   ChipRoute: typeof ChipRoute
   ClickableOptionRoute: typeof ClickableOptionRoute
+  CopyTooltipRoute: typeof CopyTooltipRoute
   CustomerCardRoute: typeof CustomerCardRoute
   DropdownRoute: typeof DropdownRoute
   GroupIconRoute: typeof GroupIconRoute
@@ -339,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/clickable-option'
       fullPath: '/clickable-option'
       preLoaderRoute: typeof ClickableOptionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/copy-tooltip': {
+      id: '/copy-tooltip'
+      path: '/copy-tooltip'
+      fullPath: '/copy-tooltip'
+      preLoaderRoute: typeof CopyTooltipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/customer-card': {
@@ -443,6 +463,7 @@ const rootRouteChildren: RootRouteChildren = {
   ButtonRoute: ButtonRoute,
   ChipRoute: ChipRoute,
   ClickableOptionRoute: ClickableOptionRoute,
+  CopyTooltipRoute: CopyTooltipRoute,
   CustomerCardRoute: CustomerCardRoute,
   DropdownRoute: DropdownRoute,
   GroupIconRoute: GroupIconRoute,

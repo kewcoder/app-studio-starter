@@ -1,4 +1,8 @@
+import type { ReactNode } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
+import { MessageCircleIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import { Chip } from '@/components/ui/chip'
 import { CustomerCard, type CustomerCardData } from '@/components/ui/customer-card'
 
 export const Route = createFileRoute('/customer-card')({
@@ -8,77 +12,82 @@ export const Route = createFileRoute('/customer-card')({
 const CUSTOMER: CustomerCardData = {
   name: 'Alex Turner',
   email: 'alex@arcticmonkey.io',
-  phone_number: '8373 3739',
+  phone_number: '8373 3739 18',
   phone_number_country_code: '65',
   address: {
-    street: '123 Main Street',
-    city: 'Pennsylvania',
+    street: '4666 Dickens Islands',
     state: 'Pennsylvania',
-    postal_code: '12345',
-    country: 'USA',
   },
 }
 
-const BENEFICIARY: CustomerCardData = {
-  name: 'Alex Turner',
-  email: 'alex@arcticmonkey.io',
-  currency: 'SGD',
-  bank_name: 'DBS Bank',
-  bank_account_number: '**** 1234',
+function ExampleBlock({
+  title,
+  children,
+}: {
+  title: string
+  children: ReactNode
+}) {
+  return (
+    <div className="space-y-3">
+      <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        {title}
+      </p>
+      <div className="max-w-[250px] space-y-3">{children}</div>
+    </div>
+  )
 }
 
 function CustomerCardExamplesPage() {
   return (
     <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
-        <div className="space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Small
-          </p>
+      <section className="space-y-12 px-8 py-12">
+        <ExampleBlock title="Small">
           <CustomerCard variant="Small" customer={CUSTOMER} />
-        </div>
+          <CustomerCard variant="Small" customer={CUSTOMER} hover />
+          <CustomerCard variant="Small" customer={CUSTOMER} active />
+          <CustomerCard variant="Small" customer={CUSTOMER} loading />
+        </ExampleBlock>
 
-        <div className="space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Big
-          </p>
+        <ExampleBlock title="Big">
           <CustomerCard variant="Big" customer={CUSTOMER} />
-        </div>
+        </ExampleBlock>
 
-        <div className="space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Float
-          </p>
+        <ExampleBlock title="Float">
           <CustomerCard variant="Float" customer={CUSTOMER} />
-        </div>
+        </ExampleBlock>
 
-        <div className="space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Empty
-          </p>
-          <CustomerCard variant="Big" />
-        </div>
+        <ExampleBlock title="Empty">
+          <CustomerCard variant="Empty" />
+        </ExampleBlock>
 
-        <div className="space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Beneficiary
-          </p>
-          <div className="space-y-4">
-            <CustomerCard variant="Small" beneficiary customer={BENEFICIARY} />
-            <CustomerCard variant="Big" beneficiary customer={BENEFICIARY} />
-          </div>
-        </div>
+        <ExampleBlock title="Label">
+          <CustomerCard
+            variant="Small"
+            customer={CUSTOMER}
+            chip={<Chip color="Blue">Text</Chip>}
+          />
+        </ExampleBlock>
 
-        <div className="space-y-4">
-          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Edit and close
-          </p>
-          <div className="space-y-4">
-            <CustomerCard variant="Small" customer={CUSTOMER} edit hover />
+        <ExampleBlock title="Edit and action">
+          <CustomerCard
+            variant="Big"
+            customer={CUSTOMER}
+            edit
+            hover
+            bottom={
+              <Button type="Primary" style="Transparent" size="Small" className="w-full">
+                <MessageCircleIcon />
+                Start Chat
+              </Button>
+            }
+          />
+        </ExampleBlock>
+
+        <ExampleBlock title="Closable">
+          <div className="p-2">
             <CustomerCard variant="Small" customer={CUSTOMER} closable />
           </div>
-        </div>
+        </ExampleBlock>
       </section>
     </main>
   )

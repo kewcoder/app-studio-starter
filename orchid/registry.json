@@ -113,7 +113,7 @@
       "title": "List Item",
       "description": "Orchid UI list item for general, webhook, and integration cards.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": [],
+      "registryDependencies": ["copy-tooltip"],
       "files": [
         {
           "path": "src/components/ui/list-item.tsx",
@@ -232,8 +232,8 @@
       "type": "registry:ui",
       "title": "Page Title",
       "description": "Orchid UI page title with description, chip, and copy.",
-      "dependencies": ["lucide-react"],
-      "registryDependencies": [],
+      "dependencies": [],
+      "registryDependencies": ["copy-tooltip"],
       "files": [
         {
           "path": "src/components/ui/page-title.tsx",
@@ -248,7 +248,7 @@
       "title": "Box Detail",
       "description": "Orchid UI detail box with labeled rows, grid, and colspan.",
       "dependencies": ["class-variance-authority", "lucide-react"],
-      "registryDependencies": [],
+      "registryDependencies": ["copy-tooltip"],
       "files": [
         {
           "path": "src/components/ui/box-detail.tsx",
@@ -273,12 +273,27 @@
       ]
     },
     {
+      "name": "copy-tooltip",
+      "type": "registry:ui",
+      "title": "Copy Tooltip",
+      "description": "Orchid UI copy icon with Copied! tooltip.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tooltip"],
+      "files": [
+        {
+          "path": "src/components/ui/copy-tooltip.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/copy-tooltip.tsx"
+        }
+      ]
+    },
+    {
       "name": "customer-card",
       "type": "registry:ui",
       "title": "Customer Card",
       "description": "Orchid UI customer and beneficiary profile card.",
       "dependencies": ["class-variance-authority", "lucide-react"],
-      "registryDependencies": ["avatar", "box-detail", "button", "chip"],
+      "registryDependencies": ["avatar", "button", "chip", "copy-tooltip"],
       "files": [
         {
           "path": "src/components/ui/customer-card.tsx",

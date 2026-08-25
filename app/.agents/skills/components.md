@@ -56,6 +56,7 @@ import {
   GroupIconLink,
   GroupIconMenu,
 } from '@/ui/group-icon'
+import { CopyTooltip } from '@/ui/copy-tooltip'
 import { CustomerCard } from '@/ui/customer-card'
 import { Modal, ModalPopup, ModalTrigger } from '@/ui/modal'
 import {
@@ -136,6 +137,10 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 `src/orchid-ui/tooltip.tsx` — import `@/ui/tooltip`. Wrap a tree in `TooltipProvider`. Compose `Tooltip`, `TooltipTrigger` (`nativeButton` + `render={<Button … />}`), `TooltipContent` (`side` `top` | `bottom` | `left` | `right`, `arrowHidden`).
 
+### Copy Tooltip
+
+`src/orchid-ui/copy-tooltip.tsx` — import `@/ui/copy-tooltip`. Copy icon. `value` is written to the clipboard; tooltip shows `label` (default `Copied!`).
+
 ### Tab Menu
 
 `src/orchid-ui/tab-menu.tsx` — import `@/ui/tab-menu`. Base UI Tabs. `type`: `Default` (underline) | `Pills`. `size`: `Default` | `Big`. Compose `TabMenu`, `TabMenuList`, `TabMenuTab` (`value`, optional `icon`, `count`), `TabMenuPanel`.
@@ -154,7 +159,7 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### Page Title
 
-`src/orchid-ui/page-title.tsx` — import `@/ui/page-title`. Heading row: title 18/24 medium + optional `chip` and `description` 14/20 on the left; `actions` (Buttons) on the right. Optional `copyValue`, `loading`. Put `BoxDetail` below, not inside.
+`src/orchid-ui/page-title.tsx` — import `@/ui/page-title`. Heading row: title 18/24 medium + optional `chip` and `description` 14/20 on the left; `actions` (Buttons) on the right. Optional `copyValue` (`CopyTooltip`), `loading`. Put `BoxDetail` below, not inside.
 
 ### Box Detail
 
@@ -166,7 +171,7 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### Customer Card
 
-`src/orchid-ui/customer-card.tsx` — import `@/ui/customer-card`. Profile card. `variant`: `Small` | `Big` | `Float`. Pass `customer` (`name`, `email`, `phone` / `phone_number`, `address`, optional `src`). `beneficiary` switches to bank fields (`currency`, `bank_name`, `bank_account_number`). Empty (no `customer`) shows Add customer (`onAdd`). `edit` + `hover`, `closable`, `onEdit`, `onClose`, `leading`, `bottom`.
+`src/orchid-ui/customer-card.tsx` — import `@/ui/customer-card`. Profile card. `variant`: `Small` | `Big` | `Float` | `Empty`. Pass `customer` (`name`, `email`, `phone` / `phone_number`, `address`, optional `src`). `active`, `loading`, `hover`, `edit`, `closable`, `chip`, `avatar`, `onAdd`, `onEdit`, `onClose`, `bottom`. `beneficiary` optional (bank chip + subtitle). Big/Float phone uses `CopyTooltip`.
 
 ### Modal
 
