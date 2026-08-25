@@ -28,7 +28,7 @@
         {
           "path": "src/components/ui/button.tsx",
           "type": "registry:ui",
-          "target": "components/ui/button.tsx"
+          "target": "orchid-ui/button.tsx"
         }
       ]
     },
@@ -43,7 +43,7 @@
         {
           "path": "src/components/ui/dropdown-menu.tsx",
           "type": "registry:ui",
-          "target": "components/ui/dropdown-menu.tsx"
+          "target": "orchid-ui/dropdown-menu.tsx"
         }
       ]
     },
@@ -58,7 +58,22 @@
         {
           "path": "src/components/ui/snackbar.tsx",
           "type": "registry:ui",
-          "target": "components/ui/snackbar.tsx"
+          "target": "orchid-ui/snackbar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "chip",
+      "type": "registry:ui",
+      "title": "Chip",
+      "description": "Orchid UI chip with color, type, icon, and removable variants.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/chip.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/chip.tsx"
         }
       ]
     }
