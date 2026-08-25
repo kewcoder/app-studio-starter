@@ -108,7 +108,9 @@ function ExamplesIndexPage() {
     <main className="min-h-dvh overflow-auto bg-background">
 
       <section className="flex flex-col gap-3 px-8 py-12">
-        {COMPONENTS.map((item) => (
+        {[...COMPONENTS]
+          .sort((a, b) => a.name.localeCompare(b.name))
+          .map((item) => (
           <Link key={item.to} to={item.to} className="block">
             <ListItem>
               <ListItemBody>
