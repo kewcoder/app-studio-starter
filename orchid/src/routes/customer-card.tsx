@@ -4,6 +4,7 @@ import { MessageCircleIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
 import { CustomerCard, type CustomerCardData } from '@/components/ui/customer-card'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/customer-card')({
   component: CustomerCardExamplesPage,
@@ -39,8 +40,7 @@ function ExampleBlock({
 
 function CustomerCardExamplesPage() {
   return (
-    <main className="bg-background">
-      <section className="space-y-12 px-8 py-12">
+    <DocExamplePage to="/customer-card">
         <ExampleBlock title="Small">
           <CustomerCard variant="Small" customer={CUSTOMER} />
           <CustomerCard variant="Small" customer={CUSTOMER} hover />
@@ -88,7 +88,6 @@ function CustomerCardExamplesPage() {
             <CustomerCard variant="Small" customer={CUSTOMER} closable />
           </div>
         </ExampleBlock>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

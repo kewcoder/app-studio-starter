@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { AlertTriangleIcon, CheckIcon, InfoIcon, XCircleIcon } from 'lucide-react'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 import { Button } from '@/components/ui/button'
 import {
   Snackbar,
@@ -32,9 +33,7 @@ const BIG_COLORS = [
 
 function SnackbarExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-12 px-6 py-8">
+    <DocExamplePage to="/snackbar">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Small
@@ -126,7 +125,6 @@ function SnackbarExamplesPage() {
             ))}
           </div>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

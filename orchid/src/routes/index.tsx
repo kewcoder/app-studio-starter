@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { docComponentsByName } from '@/components/doc/doc-components'
 import { ListItem, ListItemBody, ListItemDescription, ListItemTitle } from '@/components/ui/list-item'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/')({
   component: ExamplesIndexPage,
@@ -8,8 +9,7 @@ export const Route = createFileRoute('/')({
 
 function ExamplesIndexPage() {
   return (
-    <main className="bg-background">
-      <section className="space-y-3 px-8 py-12">
+    <DocExamplePage to="/">
         {docComponentsByName().map((item) => (
           <Link key={item.to} to={item.to} className="block">
             <ListItem>
@@ -27,7 +27,6 @@ function ExamplesIndexPage() {
             </ListItem>
           </Link>
         ))}
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

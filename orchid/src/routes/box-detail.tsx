@@ -9,6 +9,7 @@ import {
 } from '@/components/ui/box-detail'
 import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/box-detail')({
   component: BoxDetailExamplesPage,
@@ -19,9 +20,7 @@ const PHOTO =
 
 function BoxDetailExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/box-detail">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
@@ -153,7 +152,6 @@ function BoxDetailExamplesPage() {
             <BoxDetailRow label="Phone">+65 8123 4567</BoxDetailRow>
           </BoxDetail>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

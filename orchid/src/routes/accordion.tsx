@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Chip } from '@/components/ui/chip'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/accordion')({
   component: AccordionExamplesPage,
@@ -25,9 +26,7 @@ const SAMPLE = (
 
 function AccordionExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-12 px-8 py-12">
+    <DocExamplePage to="/accordion">
         <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default / Open
@@ -85,7 +84,6 @@ function AccordionExamplesPage() {
             </AccordionItem>
           </Accordion>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

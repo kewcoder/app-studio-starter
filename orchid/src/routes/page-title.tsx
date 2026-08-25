@@ -7,6 +7,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
 import { PageTitle } from '@/components/ui/page-title'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/page-title')({
   component: PageTitleExamplesPage,
@@ -14,8 +15,7 @@ export const Route = createFileRoute('/page-title')({
 
 function PageTitleExamplesPage() {
   return (
-    <main className="bg-background">
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/page-title">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
@@ -78,7 +78,6 @@ function PageTitleExamplesPage() {
             </BoxDetail>
           </div>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

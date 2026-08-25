@@ -9,6 +9,7 @@ import {
 } from 'lucide-react'
 import { OverviewItem } from '@/components/ui/overview-item'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/overview-item')({
   component: OverviewItemExamplesPage,
@@ -17,9 +18,7 @@ export const Route = createFileRoute('/overview-item')({
 function OverviewItemExamplesPage() {
   return (
     <TooltipProvider>
-      <main className="bg-background">
-
-        <section className="space-y-16 px-8 py-12">
+      <DocExamplePage to="/overview-item">
           <div className="space-y-4">
             <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
               4 items
@@ -86,8 +85,7 @@ function OverviewItemExamplesPage() {
               footer="Updated just now"
             />
           </div>
-        </section>
-      </main>
+        </DocExamplePage>
     </TooltipProvider>
   )
 }

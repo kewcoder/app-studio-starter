@@ -218,7 +218,7 @@
       "title": "Sub Header",
       "description": "Orchid UI page sub header with title, back, and actions.",
       "dependencies": ["lucide-react"],
-      "registryDependencies": ["button"],
+      "registryDependencies": [],
       "files": [
         {
           "path": "src/components/ui/sub-header.tsx",

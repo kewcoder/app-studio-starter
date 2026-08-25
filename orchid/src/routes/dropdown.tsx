@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon, PencilIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -47,9 +48,7 @@ function OpenButton({ children }: { children: React.ReactNode }) {
 
 function DropdownExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/dropdown">
         <div className="space-y-6">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Dropdown Menu
@@ -103,7 +102,6 @@ function DropdownExamplesPage() {
             Button Text
           </Button>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

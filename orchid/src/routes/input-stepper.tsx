@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { InputStepper } from '@/components/ui/input-stepper'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/input-stepper')({
   component: InputStepperExamplesPage,
@@ -10,9 +11,7 @@ function InputStepperExamplesPage() {
   const [value, setValue] = useState(1)
 
   return (
-    <main className="bg-background">
-
-      <section className="space-y-12 px-8 py-12">
+    <DocExamplePage to="/input-stepper">
         <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default — click the number to type
@@ -26,7 +25,6 @@ function InputStepperExamplesPage() {
           </p>
           <InputStepper defaultValue={3} min={1} max={10} />
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

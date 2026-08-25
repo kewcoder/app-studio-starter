@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CopyTooltip } from '@/components/ui/copy-tooltip'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/copy-tooltip')({
   component: CopyTooltipExamplesPage,
@@ -7,8 +8,7 @@ export const Route = createFileRoute('/copy-tooltip')({
 
 function CopyTooltipExamplesPage() {
   return (
-    <main className="bg-background">
-      <section className="space-y-12 px-8 py-12">
+    <DocExamplePage to="/copy-tooltip">
         <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
@@ -18,7 +18,6 @@ function CopyTooltipExamplesPage() {
             <CopyTooltip value="+65 8373 3739 18" />
           </div>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

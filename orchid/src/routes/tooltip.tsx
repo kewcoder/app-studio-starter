@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 import { Button } from '@/components/ui/button'
 import {
   Tooltip,
@@ -37,9 +38,7 @@ function Tip({
 function TooltipExamplesPage() {
   return (
     <TooltipProvider>
-      <main className="bg-background">
-
-        <section className="space-y-16 px-8 py-12">
+      <DocExamplePage to="/tooltip">
           <div className="space-y-4">
             <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
               Placement
@@ -51,8 +50,7 @@ function TooltipExamplesPage() {
               <Tip side="right" label="Right" />
             </div>
           </div>
-        </section>
-      </main>
+        </DocExamplePage>
     </TooltipProvider>
   )
 }

@@ -155,7 +155,7 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### Sub Header
 
-`src/orchid-ui/sub-header.tsx` — import `@/ui/sub-header`. Left control only: `left` `Back` | `Close`, `onBack`. Right: `actions` (e.g. Buttons). Put `PageTitle` below, not inside Sub Header.
+`src/orchid-ui/sub-header.tsx` — import `@/ui/sub-header`. Bar with bottom border. `left` `Back` (chevron + Back) | `Close` (Close + `esc` hint). `onBack`. Right: `actions`. Put `PageTitle` below, not inside.
 
 ### Page Title
 

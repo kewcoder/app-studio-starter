@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { MailIcon, MessageCircleIcon, SmartphoneIcon } from 'lucide-react'
 import { ClickableOption, ClickableOptionGroup } from '@/components/ui/clickable-option'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/clickable-option')({
   component: ClickableOptionExamplesPage,
@@ -8,8 +9,7 @@ export const Route = createFileRoute('/clickable-option')({
 
 function ClickableOptionExamplesPage() {
   return (
-    <main className="bg-background">
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/clickable-option">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Left
@@ -76,7 +76,6 @@ function ClickableOptionExamplesPage() {
             />
           </ClickableOptionGroup>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

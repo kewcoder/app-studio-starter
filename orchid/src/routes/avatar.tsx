@@ -1,5 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Avatar } from '@/components/ui/avatar'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/avatar')({
   component: AvatarExamplesPage,
@@ -11,9 +12,7 @@ const PHOTO =
 
 function AvatarExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/avatar">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Size
@@ -37,7 +36,6 @@ function AvatarExamplesPage() {
             <Avatar type="Image" src={PHOTO} alt="Portrait" />
           </div>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

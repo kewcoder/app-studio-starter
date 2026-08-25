@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon } from 'lucide-react'
 import { Chip, UserChip } from '@/components/ui/chip'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/chip')({
   component: ChipExamplesPage,
@@ -23,9 +24,7 @@ const TYPES = ['Background', 'Border', 'Transparent'] as const
 
 function ChipExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/chip">
         <div className="space-y-6">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Global Chip
@@ -60,7 +59,6 @@ function ChipExamplesPage() {
             <UserChip type="Cashier" />
           </div>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

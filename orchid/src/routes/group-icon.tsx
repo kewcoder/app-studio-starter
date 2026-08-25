@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CopyIcon, SquareArrowOutUpRightIcon } from 'lucide-react'
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 import {
   GroupIcon,
   GroupIconButton,
@@ -41,9 +42,7 @@ function ExampleGroup({ type }: { type?: 'Default' | 'Border' }) {
 
 function GroupIconExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/group-icon">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
@@ -57,7 +56,6 @@ function GroupIconExamplesPage() {
           </p>
           <ExampleGroup type="Border" />
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

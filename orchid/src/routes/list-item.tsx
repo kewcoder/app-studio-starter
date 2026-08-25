@@ -3,6 +3,7 @@ import { LandmarkIcon, MapPinIcon, CircleDollarSignIcon, PencilIcon, Trash2Icon 
 import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 import {
   ListItem,
   ListItemAction,
@@ -27,9 +28,7 @@ export const Route = createFileRoute('/list-item')({
 
 function ListItemExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/list-item">
         <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             General
@@ -262,7 +261,6 @@ function ListItemExamplesPage() {
             </ListItemTrailing>
           </ListItem>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

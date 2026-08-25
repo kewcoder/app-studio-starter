@@ -1,6 +1,7 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { Button } from '@/components/ui/button'
 import { Modal, ModalPopup, ModalTrigger } from '@/components/ui/modal'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/modal')({
   component: ModalExamplesPage,
@@ -8,9 +9,7 @@ export const Route = createFileRoute('/modal')({
 
 function ModalExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/modal">
         <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
@@ -110,7 +109,6 @@ function ModalExamplesPage() {
             </ModalPopup>
           </Modal>
         </div>
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }

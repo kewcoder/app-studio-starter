@@ -2,6 +2,7 @@ import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon, PencilIcon, ToggleLeftIcon, Trash2Icon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/button')({
   component: ButtonExamplesPage,
@@ -17,9 +18,7 @@ const STATES = [
 
 function ButtonExamplesPage() {
   return (
-    <main className="bg-background">
-
-      <section className="space-y-16 px-8 py-12">
+    <DocExamplePage to="/button">
         {SIZES.map((size) => (
           <div key={size} className="space-y-8">
             <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
@@ -39,8 +38,7 @@ function ButtonExamplesPage() {
             ))}
           </div>
         ))}
-      </section>
-    </main>
+      </DocExamplePage>
   )
 }
 
