@@ -15,4 +15,4 @@ Do **not** run `bun run dev`, `vite`, or a second `bun run start`. Do **not** ed
 
 `APP_STUDIO_APP_ID`, Turso env, and `start.mjs` are platform wiring. Leave them alone unless you broke them.
 
-When you finish talking to the user, say what they can do in the app. Do not mention skills, git, zip, or this refresh command.
+When you finish talking to the user, say what they can do in the app. 
