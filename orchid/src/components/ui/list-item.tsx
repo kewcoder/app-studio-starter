@@ -1,5 +1,5 @@
 import { useState, type ComponentProps, type ReactNode } from 'react'
-import { CopyIcon, EllipsisVerticalIcon, PencilIcon, Trash2Icon } from 'lucide-react'
+import { CopyIcon, EllipsisIcon, PencilIcon, Trash2Icon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuTrigger } from './dropdown-menu'
@@ -14,7 +14,7 @@ function ListItem({
       data-slot="list-item"
       data-selected={selected || undefined}
       className={cn(
-        'group/list-item relative flex w-full items-center gap-3 rounded-lg border border-solid bg-background px-4 py-3',
+        'group/list-item relative flex w-full items-start gap-3 rounded-lg border border-solid bg-background px-4 py-3',
         selected
           ? 'border-2 border-primary'
           : 'border-border hover:shadow-[0_3px_11px_rgba(38,42,50,0.09)]',
@@ -109,6 +109,16 @@ function ListItemDetail({
   )
 }
 
+function ListItemTrailing({ className, ...props }: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="list-item-trailing"
+      className={cn('flex shrink-0 items-center gap-2', className)}
+      {...props}
+    />
+  )
+}
+
 function ListItemHoverActions({ className, children, ...props }: ComponentProps<'div'>) {
   return (
     <div
@@ -158,7 +168,7 @@ function ListItemMore({ className, menu }: { className?: string; menu?: ReactNod
         )}
         render={
           <button type="button" aria-label="More">
-            <EllipsisVerticalIcon className="size-[22px] text-foreground" />
+            <EllipsisIcon className="size-[22px] text-foreground" />
           </button>
         }
       />
@@ -229,6 +239,7 @@ export {
   ListItemDescription,
   ListItemMeta,
   ListItemDetail,
+  ListItemTrailing,
   ListItemHoverActions,
   ListItemAction,
   ListItemActionDivider,

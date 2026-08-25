@@ -42,6 +42,11 @@ const COMPONENTS = [
     name: 'List Item',
     description: 'General, webhook, and integration list cards.',
   },
+  {
+    to: '/input-stepper' as const,
+    name: 'Input Stepper',
+    description: 'Minus/plus stepper; click the value to type.',
+  },
 ]
 
 function ExamplesIndexPage() {

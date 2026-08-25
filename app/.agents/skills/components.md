@@ -30,6 +30,7 @@ import {
 import { Chip, UserChip } from '@/ui/chip'
 import { ProgressBar } from '@/ui/progress-bar'
 import { ListItem, ListItemBody, ListItemTitle } from '@/ui/list-item'
+import { InputStepper } from '@/ui/input-stepper'
 import {
   Accordion,
   AccordionItem,
@@ -94,4 +95,9 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### List Item
 
-`src/orchid-ui/list-item.tsx` — import `@/ui/list-item`. Compose `ListItem` (`selected` for primary border), `ListItemBody`, `ListItemTitle`, `ListItemDescription`, `ListItemMeta` + `ListItemDetail`, `ListItemHoverActions` (edit/delete on hover), `ListItemCopyRow`, `ListItemMore`, `ListItemLogo`, `ListItemMedia`, `ListItemMethod`. Fluid width. Use `Chip` and `Button` from the kit.
+`src/orchid-ui/list-item.tsx` — import `@/ui/list-item`. Compose `ListItem` (`selected` for primary border), `ListItemBody`, `ListItemTitle`, `ListItemDescription`, `ListItemMeta` + `ListItemDetail`, `ListItemMedia` (64px thumbnail, e.g. page cover), `ListItemTrailing` (edit/delete + primary button, top right), `ListItemHoverActions` (edit/delete on hover, or `className="static flex"` inside trailing), `ListItemCopyRow`, `ListItemMore`, `ListItemLogo`, `ListItemMethod`. Fluid width. Use `Chip` and `Button` from the kit.
+
+### Input Stepper
+
+`src/orchid-ui/input-stepper.tsx` — import `@/ui/input-stepper`. Minus / plus steppers. Click the number to type. `value` / `defaultValue`, `min`, `max`, `step`, `onValueChange`.
+

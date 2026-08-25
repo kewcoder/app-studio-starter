@@ -121,6 +121,21 @@
           "target": "orchid-ui/list-item.tsx"
         }
       ]
+    },
+    {
+      "name": "input-stepper",
+      "type": "registry:ui",
+      "title": "Input Stepper",
+      "description": "Orchid UI input stepper; value is editable on click.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/components/ui/input-stepper.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/input-stepper.tsx"
+        }
+      ]
     }
   ]
 }

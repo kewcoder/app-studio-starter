@@ -14,10 +14,12 @@ import {
   ListItemDetail,
   ListItemHoverActions,
   ListItemLogo,
+  ListItemMedia,
   ListItemMeta,
   ListItemMethod,
   ListItemMore,
   ListItemTitle,
+  ListItemTrailing,
 } from '@/components/ui/list-item'
 
 export const Route = createFileRoute('/list-item')({
@@ -153,6 +155,62 @@ function ListItemExamplesPage() {
 
         <div className="flex flex-col gap-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            Page
+          </p>
+          <ListItem className="items-center">
+            <ListItemMedia>
+              <img
+                alt=""
+                className="size-full object-cover"
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=128&h=128&fit=crop"
+              />
+            </ListItemMedia>
+            <ListItemBody className="gap-1">
+              <ListItemTitle>Home</ListItemTitle>
+              <ListItemDescription className="line-clamp-2">
+                Welcome to our store. Discover new arrivals and seasonal offers.
+              </ListItemDescription>
+              <ListItemMeta>
+                <span className="text-xs leading-[1.5] text-muted-foreground">
+                  Last updated : 20 Oct 2023
+                </span>
+                <Chip color="Green">Published</Chip>
+              </ListItemMeta>
+            </ListItemBody>
+          </ListItem>
+          <ListItem className="items-center">
+            <ListItemMedia>
+              <img
+                alt=""
+                className="size-full object-cover"
+                src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=128&h=128&fit=crop"
+              />
+            </ListItemMedia>
+            <ListItemBody className="gap-1">
+              <ListItemTitle>Home</ListItemTitle>
+              <ListItemDescription className="line-clamp-2">
+                Welcome to our store. Discover new arrivals and seasonal offers.
+              </ListItemDescription>
+              <ListItemMeta>
+                <span className="text-xs leading-[1.5] text-muted-foreground">
+                  Last updated : 20 Oct 2023
+                </span>
+                <Chip color="Grey">Draft</Chip>
+              </ListItemMeta>
+            </ListItemBody>
+            <ListItemMore
+              menu={
+                <>
+                  <DropdownMenuItem>Edit</DropdownMenuItem>
+                  <DropdownMenuItem variant="destructive">Delete</DropdownMenuItem>
+                </>
+              }
+            />
+          </ListItem>
+        </div>
+
+        <div className="flex flex-col gap-3">
+          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Integration
           </p>
           <ListItem className="p-4">
@@ -175,24 +233,13 @@ function ListItemExamplesPage() {
           </ListItem>
           <ListItem className="p-4">
             <ListItemBody>
-              <div className="flex items-center justify-between gap-3">
-                <div className="flex min-w-0 items-center gap-2">
-                  <ListItemLogo>
-                    <span className="flex size-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
-                      H
-                    </span>
-                  </ListItemLogo>
-                  <ListItemTitle>HitPay Store</ListItemTitle>
-                </div>
-                <ListItemHoverActions className="static flex">
-                  <ListItemAction aria-label="Edit">
-                    <PencilIcon className="size-4" />
-                  </ListItemAction>
-                  <ListItemActionDivider />
-                  <ListItemAction aria-label="Delete" destructive>
-                    <Trash2Icon className="size-4" />
-                  </ListItemAction>
-                </ListItemHoverActions>
+              <div className="flex min-w-0 items-center gap-2">
+                <ListItemLogo>
+                  <span className="flex size-8 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">
+                    H
+                  </span>
+                </ListItemLogo>
+                <ListItemTitle>HitPay Store</ListItemTitle>
               </div>
               <div className="flex flex-wrap items-center gap-1">
                 <p className="mr-1 text-xs font-medium text-muted-foreground">Payment methods</p>
@@ -201,9 +248,20 @@ function ListItemExamplesPage() {
                 ))}
               </div>
             </ListItemBody>
-            <Button type="Primary" size="Default">
-              Connect
-            </Button>
+            <ListItemTrailing>
+              <ListItemHoverActions className="static flex">
+                <ListItemAction aria-label="Edit">
+                  <PencilIcon className="size-4" />
+                </ListItemAction>
+                <ListItemActionDivider />
+                <ListItemAction aria-label="Delete" destructive>
+                  <Trash2Icon className="size-4" />
+                </ListItemAction>
+              </ListItemHoverActions>
+              <Button type="Primary" size="Default">
+                Connect
+              </Button>
+            </ListItemTrailing>
           </ListItem>
         </div>
       </section>
