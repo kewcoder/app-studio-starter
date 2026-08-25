@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ButtonRouteImport } from './routes/button'
+import { Route as ChipRouteImport } from './routes/chip'
 import { Route as DropdownRouteImport } from './routes/dropdown'
 import { Route as SnackbarRouteImport } from './routes/snackbar'
 
@@ -22,6 +23,11 @@ const IndexRoute = IndexRouteImport.update({
 const ButtonRoute = ButtonRouteImport.update({
   id: '/button',
   path: '/button',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChipRoute = ChipRouteImport.update({
+  id: '/chip',
+  path: '/chip',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DropdownRoute = DropdownRouteImport.update({
@@ -38,12 +44,14 @@ const SnackbarRoute = SnackbarRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/button': typeof ButtonRoute
+  '/chip': typeof ChipRoute
   '/dropdown': typeof DropdownRoute
   '/snackbar': typeof SnackbarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/button': typeof ButtonRoute
+  '/chip': typeof ChipRoute
   '/dropdown': typeof DropdownRoute
   '/snackbar': typeof SnackbarRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/button': typeof ButtonRoute
+  '/chip': typeof ChipRoute
   '/dropdown': typeof DropdownRoute
   '/snackbar': typeof SnackbarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/button' | '/dropdown' | '/snackbar'
+  fullPaths: '/' | '/button' | '/chip' | '/dropdown' | '/snackbar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/button' | '/dropdown' | '/snackbar'
-  id: '__root__' | '/' | '/button' | '/dropdown' | '/snackbar'
+  to: '/' | '/button' | '/chip' | '/dropdown' | '/snackbar'
+  id: '__root__' | '/' | '/button' | '/chip' | '/dropdown' | '/snackbar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ButtonRoute: typeof ButtonRoute
+  ChipRoute: typeof ChipRoute
   DropdownRoute: typeof DropdownRoute
   SnackbarRoute: typeof SnackbarRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/button'
       fullPath: '/button'
       preLoaderRoute: typeof ButtonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chip': {
+      id: '/chip'
+      path: '/chip'
+      fullPath: '/chip'
+      preLoaderRoute: typeof ChipRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dropdown': {
@@ -105,9 +122,19 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ButtonRoute: ButtonRoute,
+  ChipRoute: ChipRoute,
   DropdownRoute: DropdownRoute,
   SnackbarRoute: SnackbarRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

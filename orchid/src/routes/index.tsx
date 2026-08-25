@@ -21,6 +21,11 @@ const COMPONENTS = [
     name: 'Snack Bar',
     description: 'Small/Default as floating toasts; Big with close and actions.',
   },
+  {
+    to: '/chip' as const,
+    name: 'Chip',
+    description: 'Global colors, Background/Border/Transparent, and user-type chips.',
+  },
 ]
 
 function ExamplesIndexPage() {
