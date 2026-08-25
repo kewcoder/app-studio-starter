@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
 import { CustomerCard, type CustomerCardData } from '@/components/ui/customer-card'
 
 export const Route = createFileRoute('/customer-card')({
@@ -31,7 +30,6 @@ const BENEFICIARY: CustomerCardData = {
 function CustomerCardExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Customer Card" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         <div className="flex flex-col gap-4">

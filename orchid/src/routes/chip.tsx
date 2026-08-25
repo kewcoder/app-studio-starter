@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Chip, UserChip } from '@/components/ui/chip'
 
 export const Route = createFileRoute('/chip')({
@@ -25,7 +24,6 @@ const TYPES = ['Background', 'Border', 'Transparent'] as const
 function ChipExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Chip" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         <div className="flex flex-col gap-6">

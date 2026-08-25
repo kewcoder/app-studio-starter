@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Button } from '@/components/ui/button'
 import {
   Tooltip,
@@ -39,7 +38,6 @@ function TooltipExamplesPage() {
   return (
     <TooltipProvider>
       <main className="min-h-dvh overflow-auto bg-background">
-        <DocHeader crumb="Tooltip" />
 
         <section className="flex flex-col gap-16 px-8 py-12">
           <div className="flex flex-col gap-4">

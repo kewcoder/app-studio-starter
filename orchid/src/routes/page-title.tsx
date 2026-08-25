@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Chip } from '@/components/ui/chip'
 import { PageTitle } from '@/components/ui/page-title'
 
@@ -10,7 +9,6 @@ export const Route = createFileRoute('/page-title')({
 function PageTitleExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Page Title" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         <div className="flex flex-col gap-4">

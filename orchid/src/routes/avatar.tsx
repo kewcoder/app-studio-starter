@@ -1,5 +1,4 @@
 import { createFileRoute } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Avatar } from '@/components/ui/avatar'
 
 export const Route = createFileRoute('/avatar')({
@@ -13,7 +12,6 @@ const PHOTO =
 function AvatarExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Avatar" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         <div className="flex flex-col gap-4">

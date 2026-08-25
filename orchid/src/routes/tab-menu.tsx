@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { SmartphoneIcon, MonitorIcon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { TabMenu, TabMenuList, TabMenuPanel, TabMenuTab } from '@/components/ui/tab-menu'
 
 export const Route = createFileRoute('/tab-menu')({
@@ -10,7 +9,6 @@ export const Route = createFileRoute('/tab-menu')({
 function TabMenuExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Tab Menu" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         <div className="flex flex-col gap-4">

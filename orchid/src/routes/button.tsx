@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon, PencilIcon, ToggleLeftIcon, Trash2Icon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Button } from '@/components/ui/button'
 import { DropdownMenuItem, DropdownMenuSeparator } from '@/components/ui/dropdown-menu'
 
@@ -19,7 +18,6 @@ const STATES = [
 function ButtonExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Button" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         {SIZES.map((size) => (

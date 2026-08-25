@@ -7,7 +7,6 @@ import {
   SquareCheckIcon,
   UsersIcon,
 } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { OverviewItem } from '@/components/ui/overview-item'
 import { TooltipProvider } from '@/components/ui/tooltip'
 
@@ -19,7 +18,6 @@ function OverviewItemExamplesPage() {
   return (
     <TooltipProvider>
       <main className="min-h-dvh overflow-auto bg-background">
-        <DocHeader crumb="Overview Item" />
 
         <section className="flex flex-col gap-16 px-8 py-12">
           <div className="flex flex-col gap-4">

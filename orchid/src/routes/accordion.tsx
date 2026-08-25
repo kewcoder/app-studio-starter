@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import {
   Accordion,
   AccordionItem,
@@ -27,7 +26,6 @@ const SAMPLE = (
 function AccordionExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Accordion" />
 
       <section className="flex flex-col gap-12 px-8 py-12">
         <div className="flex flex-col gap-3">

@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { AlertTriangleIcon, CheckIcon, InfoIcon, XCircleIcon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Button } from '@/components/ui/button'
 import {
   Snackbar,
@@ -34,7 +33,6 @@ const BIG_COLORS = [
 function SnackbarExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Snack Bar" />
 
       <section className="flex flex-col gap-12 px-6 py-8">
         <div className="flex flex-col gap-4">

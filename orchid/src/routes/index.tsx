@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
 import { ListItem, ListItemBody, ListItemDescription, ListItemTitle } from '@/components/ui/list-item'
 
 export const Route = createFileRoute('/')({
@@ -107,7 +106,6 @@ const COMPONENTS = [
 function ExamplesIndexPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Examples" />
 
       <section className="flex flex-col gap-3 px-8 py-12">
         {COMPONENTS.map((item) => (

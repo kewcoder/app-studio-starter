@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { LandmarkIcon, MapPinIcon, CircleDollarSignIcon, PencilIcon, Trash2Icon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
 import { DropdownMenuItem } from '@/components/ui/dropdown-menu'
@@ -29,7 +28,6 @@ export const Route = createFileRoute('/list-item')({
 function ListItemExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="List Item" />
 
       <section className="flex flex-col gap-16 px-8 py-12">
         <div className="flex flex-col gap-3">

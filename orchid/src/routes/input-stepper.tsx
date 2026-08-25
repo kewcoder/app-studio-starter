@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
 import { InputStepper } from '@/components/ui/input-stepper'
 
 export const Route = createFileRoute('/input-stepper')({
@@ -12,7 +11,6 @@ function InputStepperExamplesPage() {
 
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Input Stepper" />
 
       <section className="flex flex-col gap-12 px-8 py-12">
         <div className="flex flex-col gap-3">

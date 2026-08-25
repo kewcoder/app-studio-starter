@@ -1,18 +1,29 @@
-import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
-import { DocHeader } from '@/components/examples/doc-header'
+import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
+import { DocHeader, PreviewCanvas, PreviewProvider } from '@/components/examples/doc-header'
 
 import appCss from '../styles.css?url'
 
 function NotFound() {
   return (
-    <main className="min-h-dvh bg-background">
-      <DocHeader crumb="Not found" />
-      <p className="px-8 py-12 text-sm text-muted-foreground">That page does not exist.</p>
-    </main>
+    <p className="px-8 py-12 text-sm text-muted-foreground">That page does not exist.</p>
+  )
+}
+
+function RootLayout() {
+  return (
+    <PreviewProvider>
+      <div className="flex min-h-dvh flex-col">
+        <DocHeader />
+        <PreviewCanvas>
+          <Outlet />
+        </PreviewCanvas>
+      </div>
+    </PreviewProvider>
   )
 }
 
 export const Route = createRootRoute({
+  component: RootLayout,
   notFoundComponent: NotFound,
   head: () => ({
     meta: [

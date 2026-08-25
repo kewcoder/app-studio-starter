@@ -1,6 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
 import { CircleIcon, PencilIcon } from 'lucide-react'
-import { DocHeader } from '@/components/examples/doc-header'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -49,7 +48,6 @@ function OpenButton({ children }: { children: React.ReactNode }) {
 function DropdownExamplesPage() {
   return (
     <main className="min-h-dvh overflow-auto bg-background">
-      <DocHeader crumb="Dropdown" />
 
       <section className="flex flex-col items-start gap-16 px-8 py-12">
         <div className="flex flex-col items-start gap-6">
