@@ -65,7 +65,7 @@ function DocHeader() {
         <h1 className="truncate text-sm font-semibold">{crumb}</h1>
       </div>
 
-      <div className="flex items-center gap-1 rounded-lg bg-white/10 p-0.5">
+      <div className="hidden items-center gap-1 rounded-lg bg-white/10 p-0.5 sm:flex">
         {PREVIEW_OPTIONS.map(({ id, label, icon: Icon }) => (
           <button
             key={id}
