@@ -31,6 +31,33 @@ import { Chip, UserChip } from '@/ui/chip'
 import { ProgressBar } from '@/ui/progress-bar'
 import { ListItem, ListItemBody, ListItemTitle } from '@/ui/list-item'
 import { InputStepper } from '@/ui/input-stepper'
+import { Avatar } from '@/ui/avatar'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from '@/ui/tooltip'
+import { TabMenu, TabMenuList, TabMenuPanel, TabMenuTab } from '@/ui/tab-menu'
+import { ClickableOption, ClickableOptionGroup } from '@/ui/clickable-option'
+import { OverviewItem } from '@/ui/overview-item'
+import { SubHeader } from '@/ui/sub-header'
+import { PageTitle } from '@/ui/page-title'
+import {
+  BoxDetail,
+  BoxDetailGrid,
+  BoxDetailHeader,
+  BoxDetailRow,
+  BoxDetailTitle,
+} from '@/ui/box-detail'
+import {
+  GroupIcon,
+  GroupIconButton,
+  GroupIconLink,
+  GroupIconMenu,
+} from '@/ui/group-icon'
+import { CustomerCard } from '@/ui/customer-card'
+import { Modal, ModalPopup, ModalTrigger } from '@/ui/modal'
 import {
   Accordion,
   AccordionItem,
@@ -100,4 +127,48 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 ### Input Stepper
 
 `src/orchid-ui/input-stepper.tsx` — import `@/ui/input-stepper`. Minus / plus steppers. Click the number to type. `value` / `defaultValue`, `min`, `max`, `step`, `onValueChange`.
+
+### Avatar
+
+`src/orchid-ui/avatar.tsx` — import `@/ui/avatar`. `size`: `24` `28` `32` `40` `48` `64` (default `32`). `type`: `Default` | `Business` | `Image`. Initials as children; `src` / `alt` for photos.
+
+### Tooltip
+
+`src/orchid-ui/tooltip.tsx` — import `@/ui/tooltip`. Wrap a tree in `TooltipProvider`. Compose `Tooltip`, `TooltipTrigger` (`nativeButton` + `render={<Button … />}`), `TooltipContent` (`side` `top` | `bottom` | `left` | `right`, `arrowHidden`).
+
+### Tab Menu
+
+`src/orchid-ui/tab-menu.tsx` — import `@/ui/tab-menu`. Base UI Tabs. `type`: `Default` (underline) | `Pills`. `size`: `Default` | `Big`. Compose `TabMenu`, `TabMenuList`, `TabMenuTab` (`value`, optional `icon`, `count`), `TabMenuPanel`.
+
+### Clickable Option
+
+`src/orchid-ui/clickable-option.tsx` — import `@/ui/clickable-option`. Base UI Radio. Wrap in `ClickableOptionGroup` (`value` / `defaultValue`, `onValueChange`). Each `ClickableOption` needs `value`; optional `title`, `description`, `icon`.
+
+### Overview Item
+
+`src/orchid-ui/overview-item.tsx` — import `@/ui/overview-item`. Metric card: header (`icon`, `title`, optional `info` + `tooltip`) with a divider, then `content` plus outlined `percentValue` badge. `iconColor`: `Blue` | `Green` | `Red` | `Grey`. Optional `footer`, `transparent`, `loading`. Lay out several cards in a CSS grid (e.g. 4 columns). Wrap the page in `TooltipProvider` if using tooltips.
+
+### Sub Header
+
+`src/orchid-ui/sub-header.tsx` — import `@/ui/sub-header`. Left control only: `left` `Back` | `Close`, `onBack`. Right: `actions` (e.g. Buttons). Put `PageTitle` below, not inside Sub Header.
+
+### Page Title
+
+`src/orchid-ui/page-title.tsx` — import `@/ui/page-title`. Heading block. `title`, optional `description`, `chip`, `copyValue` (copy icon next to description), `loading`.
+
+### Box Detail
+
+`src/orchid-ui/box-detail.tsx` — import `@/ui/box-detail`. Labeled fields. Always one outer card border. `type`: `Default` (gaps between fields) | `Border` (table lines on every row/column). Compose `BoxDetail`, `BoxDetailHeader`, `BoxDetailTitle`, `BoxDetailGrid` (`columns`), `BoxDetailRow` (`label`, `alignment` `Horizontal` | `Vertical`, `size` `Small` | `Big`, `copyValue`, `colSpan` inside a grid).
+
+### Group Icon
+
+`src/orchid-ui/group-icon.tsx` — import `@/ui/group-icon`. Icon action cluster. `type`: `Default` | `Border`. Compose `GroupIcon`, `GroupIconButton`, `GroupIconLink` (opens a new tab), `GroupIconDivider`, `GroupIconMenu` (dropdown, uses horizontal ellipsis).
+
+### Customer Card
+
+`src/orchid-ui/customer-card.tsx` — import `@/ui/customer-card`. Profile card. `variant`: `Small` | `Big` | `Float`. Pass `customer` (`name`, `email`, `phone` / `phone_number`, `address`, optional `src`). `beneficiary` switches to bank fields (`currency`, `bank_name`, `bank_account_number`). Empty (no `customer`) shows Add customer (`onAdd`). `edit` + `hover`, `closable`, `onEdit`, `onClose`, `leading`, `bottom`.
+
+### Modal
+
+`src/orchid-ui/modal.tsx` — import `@/ui/modal`. Base UI Dialog. Wrap `ModalTrigger` + `ModalPopup` in `Modal`. `size`: `Small` | `Medium` | `Default`. `title`, `description`, `closeIcon`, `header`, `footer`, `borderless`, `persistent` (no backdrop close). Footer: `cancelLabel`, `confirmLabel`, `confirmType`, `onCancel`, `onConfirm`, or `footerContent`.
 

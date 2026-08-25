@@ -1,0 +1,21 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "sub-header",
+  "title": "Sub Header",
+  "description": "Orchid UI page sub header with title, back, and actions.",
+  "dependencies": [
+    "lucide-react"
+  ],
+  "registryDependencies": [
+    "button"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/sub-header.tsx",
+      "content": "import type { ComponentProps, ReactNode } from 'react'\nimport { ChevronLeftIcon, XIcon } from 'lucide-react'\n\nimport { cn } from '@/lib/utils'\nimport { Button } from './button'\n\nfunction SubHeader({\n  className,\n  left = 'Back',\n  onBack,\n  actions,\n  ...props\n}: ComponentProps<'div'> & {\n  left?: 'Back' | 'Close'\n  onBack?: () => void\n  actions?: ReactNode\n}) {\n  return (\n    <div\n      data-slot=\"sub-header\"\n      className={cn('flex w-full items-center justify-between gap-4', className)}\n      {...props}\n    >\n      <Button\n        type=\"Secondary\"\n        style=\"Transparent\"\n        size=\"Small\"\n        iconOnly\n        htmlType=\"button\"\n        aria-label={left === 'Close' ? 'Close' : 'Back'}\n        onClick={onBack}\n      >\n        {left === 'Close' ? <XIcon /> : <ChevronLeftIcon />}\n      </Button>\n      {actions ? (\n        <div className=\"flex min-w-0 flex-1 flex-wrap items-center justify-end gap-2\">{actions}</div>\n      ) : (\n        <span className=\"min-w-0 flex-1\" />\n      )}\n    </div>\n  )\n}\n\nexport { SubHeader }\n",
+      "type": "registry:ui",
+      "target": "orchid-ui/sub-header.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

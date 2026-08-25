@@ -136,6 +136,171 @@
           "target": "orchid-ui/input-stepper.tsx"
         }
       ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "title": "Avatar",
+      "description": "Orchid UI avatar with size and Default, Business, or Image type.",
+      "dependencies": ["class-variance-authority"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/avatar.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/avatar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Tooltip",
+      "description": "Orchid UI tooltip with arrow and placement.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/tooltip.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/tooltip.tsx"
+        }
+      ]
+    },
+    {
+      "name": "tab-menu",
+      "type": "registry:ui",
+      "title": "Tab Menu",
+      "description": "Orchid UI tab menu with Default underline and Pills types.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/tab-menu.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/tab-menu.tsx"
+        }
+      ]
+    },
+    {
+      "name": "clickable-option",
+      "type": "registry:ui",
+      "title": "Clickable Option",
+      "description": "Orchid UI clickable option radio cards.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/clickable-option.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/clickable-option.tsx"
+        }
+      ]
+    },
+    {
+      "name": "overview-item",
+      "type": "registry:ui",
+      "title": "Overview Item",
+      "description": "Orchid UI overview metric card.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["tooltip"],
+      "files": [
+        {
+          "path": "src/components/ui/overview-item.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/overview-item.tsx"
+        }
+      ]
+    },
+    {
+      "name": "sub-header",
+      "type": "registry:ui",
+      "title": "Sub Header",
+      "description": "Orchid UI page sub header with title, back, and actions.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/components/ui/sub-header.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/sub-header.tsx"
+        }
+      ]
+    },
+    {
+      "name": "page-title",
+      "type": "registry:ui",
+      "title": "Page Title",
+      "description": "Orchid UI page title with description, chip, and copy.",
+      "dependencies": ["lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/page-title.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/page-title.tsx"
+        }
+      ]
+    },
+    {
+      "name": "box-detail",
+      "type": "registry:ui",
+      "title": "Box Detail",
+      "description": "Orchid UI detail box with labeled rows, grid, and colspan.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/box-detail.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/box-detail.tsx"
+        }
+      ]
+    },
+    {
+      "name": "group-icon",
+      "type": "registry:ui",
+      "title": "Group Icon",
+      "description": "Orchid UI icon action group with Default and Border types.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["dropdown-menu"],
+      "files": [
+        {
+          "path": "src/components/ui/group-icon.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/group-icon.tsx"
+        }
+      ]
+    },
+    {
+      "name": "customer-card",
+      "type": "registry:ui",
+      "title": "Customer Card",
+      "description": "Orchid UI customer and beneficiary profile card.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": ["avatar", "box-detail", "button", "chip"],
+      "files": [
+        {
+          "path": "src/components/ui/customer-card.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/customer-card.tsx"
+        }
+      ]
+    },
+    {
+      "name": "modal",
+      "type": "registry:ui",
+      "title": "Modal",
+      "description": "Orchid UI modal dialog with header, body, and footer.",
+      "dependencies": ["@base-ui/react", "class-variance-authority", "lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/components/ui/modal.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/modal.tsx"
+        }
+      ]
     }
   ]
 }
