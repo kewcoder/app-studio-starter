@@ -7,6 +7,9 @@ export function getRouter() {
     scrollRestoration: true,
     defaultPreload: 'intent',
     defaultPreloadStaleTime: 0,
+    defaultNotFoundComponent: () => (
+      <p className="p-8 text-sm text-muted-foreground">That page does not exist.</p>
+    ),
   })
 
   return router

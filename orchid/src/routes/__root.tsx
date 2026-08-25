@@ -1,8 +1,19 @@
 import { HeadContent, Scripts, createRootRoute } from '@tanstack/react-router'
+import { DocHeader } from '@/components/examples/doc-header'
 
 import appCss from '../styles.css?url'
 
+function NotFound() {
+  return (
+    <main className="min-h-dvh bg-background">
+      <DocHeader crumb="Not found" />
+      <p className="px-8 py-12 text-sm text-muted-foreground">That page does not exist.</p>
+    </main>
+  )
+}
+
 export const Route = createRootRoute({
+  notFoundComponent: NotFound,
   head: () => ({
     meta: [
       { charSet: 'utf-8' },
@@ -10,6 +21,7 @@ export const Route = createRootRoute({
       { title: 'Orchid UI' },
     ],
     links: [
+      { rel: 'icon', href: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="%232465de"/></svg>' },
       { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
       { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossOrigin: '' },
       {
