@@ -71,7 +71,7 @@ Do not use shadcn APIs (`variant="outline"`, `size="sm"`) as the primary API.
 
 ### Button
 
-`type`: `Primary` | `Destructive` | `Secondary` (default `Primary`). Visual only — use `htmlType` for submit.  
+`type`: `Primary` | `Secondary` | `Destructive` (default `Primary`). Visual only — use `htmlType` for submit.  
 `style`: `Default` | `Transparent` | `Border`.  
 `size`: `Small` | `Default` | `Big`.  
 `iconOnly`, `shape`: `Default` | `Circle`.  

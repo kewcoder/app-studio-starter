@@ -27,6 +27,7 @@ const SAMPLE = (
 function AccordionExamplesPage() {
   return (
     <DocExamplePage to="/accordion">
+      <div className="grid gap-8 md:grid-cols-2">
         <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default / Open
@@ -84,6 +85,7 @@ function AccordionExamplesPage() {
             </AccordionItem>
           </Accordion>
         </div>
-      </DocExamplePage>
+      </div>
+    </DocExamplePage>
   )
 }

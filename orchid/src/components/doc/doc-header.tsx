@@ -33,9 +33,9 @@ function PreviewCanvas({ children }: { children: ReactNode }) {
   const { preview } = useContext(PreviewContext)
 
   return (
-    <div className="flex min-h-0 flex-1 justify-center overflow-auto bg-[#e8eaf0] p-4">
+    <div className="min-h-0 flex-1 overflow-auto bg-background">
       <div
-        className="min-h-full w-full overflow-auto rounded-sm bg-background shadow-[0_1px_3px_rgba(0,0,0,0.1),0_3px_22px_rgba(38,42,50,0.09)] transition-[max-width] duration-200"
+        className="w-full bg-background transition-[max-width] duration-200"
         style={{ maxWidth: PREVIEW_MAX_WIDTH[preview] }}
       >
         {children}
@@ -56,7 +56,7 @@ function DocHeader() {
   const { preview, setPreview } = useContext(PreviewContext)
 
   return (
-    <header className="sticky top-0 z-30 flex h-14 shrink-0 items-center justify-between gap-4 bg-black px-6 text-white">
+    <header className="flex h-14 shrink-0 items-center justify-between gap-4 bg-black px-6 text-white">
       <div className="flex min-w-0 items-baseline gap-2">
         <Link to="/" className="text-sm text-white/60 hover:text-white">
           Orchid UI

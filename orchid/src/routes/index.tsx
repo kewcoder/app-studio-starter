@@ -10,23 +10,20 @@ export const Route = createFileRoute('/')({
 function ExamplesIndexPage() {
   return (
     <DocExamplePage to="/">
+      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
         {docComponentsByName().map((item) => (
-          <Link key={item.to} to={item.to} className="block">
-            <ListItem>
+          <Link key={item.to} to={item.to} className="block min-w-0">
+            <ListItem className="h-full">
               <ListItemBody>
-                <div className="flex items-center justify-between gap-3">
-                  <div className="min-w-0">
-                    <ListItemTitle>{item.name}</ListItemTitle>
-                    <ListItemDescription className="text-muted-foreground">
-                      {item.description}
-                    </ListItemDescription>
-                  </div>
-                  <span className="shrink-0 text-sm text-primary">Open</span>
-                </div>
+                <ListItemTitle>{item.name}</ListItemTitle>
+                <ListItemDescription className="text-muted-foreground">
+                  {item.description}
+                </ListItemDescription>
               </ListItemBody>
             </ListItem>
           </Link>
         ))}
-      </DocExamplePage>
+      </div>
+    </DocExamplePage>
   )
 }

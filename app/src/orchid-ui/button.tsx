@@ -12,8 +12,8 @@ const buttonVariants = cva(
     variants: {
       type: {
         Primary: '',
-        Destructive: '',
         Secondary: '',
+        Destructive: '',
       },
       style: {
         Default: '',
@@ -105,7 +105,7 @@ const buttonVariants = cva(
   },
 )
 
-type ButtonType = 'Primary' | 'Destructive' | 'Secondary'
+type ButtonType = 'Primary' | 'Secondary' | 'Destructive'
 type ButtonStyle = 'Default' | 'Transparent' | 'Border'
 type ButtonSize = 'Small' | 'Default' | 'Big'
 

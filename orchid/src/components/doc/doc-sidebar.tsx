@@ -10,34 +10,31 @@ function DocSidebar() {
   if (pathname === '/') return null
 
   return (
-    <>
-      <aside className="fixed top-14 bottom-0 left-0 z-20 hidden w-56 flex-col overflow-y-auto border-r border-solid border-border bg-background md:flex">
-        <p className="sticky top-0 bg-background px-4 pt-4 pb-2 text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-          Components
-        </p>
-        <nav className="px-3 pb-4">
-          <ClickableOptionGroup
-            alignment="Vertical"
-            value={pathname}
-            onValueChange={(value) => {
-              if (value) void navigate({ to: value })
-            }}
-            className="gap-2"
-          >
-            {docComponentsByName().map((item) => (
-              <ClickableOption
-                key={item.to}
-                value={item.to}
-                title={item.name}
-                alignment="Left"
-                className="px-3 py-2"
-              />
-            ))}
-          </ClickableOptionGroup>
-        </nav>
-      </aside>
-      <div className="hidden w-56 shrink-0 md:block" aria-hidden />
-    </>
+    <aside className="hidden h-full w-56 shrink-0 flex-col overflow-y-auto border-r border-solid border-border bg-background md:flex">
+      <p className="sticky top-0 bg-background px-4 pt-4 pb-2 text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+        Components
+      </p>
+      <nav className="px-3 pb-4">
+        <ClickableOptionGroup
+          alignment="Vertical"
+          value={pathname}
+          onValueChange={(value) => {
+            if (value) void navigate({ to: value })
+          }}
+          className="gap-2"
+        >
+          {docComponentsByName().map((item) => (
+            <ClickableOption
+              key={item.to}
+              value={item.to}
+              title={item.name}
+              alignment="Left"
+              className="px-3 py-2"
+            />
+          ))}
+        </ClickableOptionGroup>
+      </nav>
+    </aside>
   )
 }
 

@@ -1,10 +1,10 @@
 import type { ReactNode } from 'react'
 import { createFileRoute } from '@tanstack/react-router'
 import { MessageCircleIcon } from 'lucide-react'
+import { DocExamplePage } from '@/components/doc/doc-example-page'
 import { Button } from '@/components/ui/button'
 import { Chip } from '@/components/ui/chip'
 import { CustomerCard, type CustomerCardData } from '@/components/ui/customer-card'
-import { DocExamplePage } from '@/components/doc/doc-example-page'
 
 export const Route = createFileRoute('/customer-card')({
   component: CustomerCardExamplesPage,
@@ -33,7 +33,7 @@ function ExampleBlock({
       <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
         {title}
       </p>
-      <div className="max-w-[250px] space-y-3">{children}</div>
+      {children}
     </div>
   )
 }
@@ -41,13 +41,16 @@ function ExampleBlock({
 function CustomerCardExamplesPage() {
   return (
     <DocExamplePage to="/customer-card">
-        <ExampleBlock title="Small">
+      <ExampleBlock title="Small">
+        <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <CustomerCard variant="Small" customer={CUSTOMER} />
           <CustomerCard variant="Small" customer={CUSTOMER} hover />
           <CustomerCard variant="Small" customer={CUSTOMER} active />
           <CustomerCard variant="Small" customer={CUSTOMER} loading />
-        </ExampleBlock>
+        </div>
+      </ExampleBlock>
 
+      <div className="grid gap-8 md:grid-cols-2 xl:grid-cols-3">
         <ExampleBlock title="Big">
           <CustomerCard variant="Big" customer={CUSTOMER} />
         </ExampleBlock>
@@ -88,6 +91,7 @@ function CustomerCardExamplesPage() {
             <CustomerCard variant="Small" customer={CUSTOMER} closable />
           </div>
         </ExampleBlock>
-      </DocExamplePage>
+      </div>
+    </DocExamplePage>
   )
 }
