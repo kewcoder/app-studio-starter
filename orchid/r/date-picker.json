@@ -1,0 +1,22 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "date-picker",
+  "title": "Date Picker",
+  "description": "Orchid UI date picker with calendar and footer actions.",
+  "dependencies": [
+    "react-day-picker"
+  ],
+  "registryDependencies": [
+    "button",
+    "calendar"
+  ],
+  "files": [
+    {
+      "path": "src/components/ui/date-picker.tsx",
+      "content": "import { useState } from 'react'\nimport type { DateRange, Matcher } from 'react-day-picker'\n\nimport { cn } from '@/lib/utils'\nimport { Button } from './button'\nimport { Calendar } from './calendar'\n\ntype DatePickerProps = {\n  className?: string\n  mode?: 'single' | 'range'\n  selected?: Date\n  defaultSelected?: Date\n  onSelect?: (date: Date | undefined) => void\n  range?: DateRange\n  defaultRange?: DateRange\n  onRangeSelect?: (range: DateRange | undefined) => void\n  disabled?: Matcher | Matcher[]\n  showFooter?: boolean\n  onClear?: () => void\n  onDone?: () => void\n}\n\nfunction DatePicker({\n  className,\n  mode = 'single',\n  selected,\n  defaultSelected,\n  onSelect,\n  range,\n  defaultRange,\n  onRangeSelect,\n  disabled,\n  showFooter = true,\n  onClear,\n  onDone,\n}: DatePickerProps) {\n  const [uncontrolledDate, setUncontrolledDate] = useState<Date | undefined>(defaultSelected)\n  const [uncontrolledRange, setUncontrolledRange] = useState<DateRange | undefined>(defaultRange)\n\n  const date = selected ?? uncontrolledDate\n  const dateRange = range ?? uncontrolledRange\n\n  function handleClear() {\n    setUncontrolledDate(undefined)\n    setUncontrolledRange(undefined)\n    onSelect?.(undefined)\n    onRangeSelect?.(undefined)\n    onClear?.()\n  }\n\n  return (\n    <div\n      data-slot=\"date-picker\"\n      className={cn(\n        'flex w-fit flex-col gap-6 rounded-lg bg-background p-5 shadow-[0_3px_11px_rgba(38,42,50,0.09)]',\n        className,\n      )}\n    >\n      {mode === 'range' ? (\n        <Calendar\n          mode=\"range\"\n          selected={dateRange}\n          onSelect={(next) => {\n            setUncontrolledRange(next)\n            onRangeSelect?.(next)\n          }}\n          disabled={disabled}\n        />\n      ) : (\n        <Calendar\n          mode=\"single\"\n          selected={date}\n          onSelect={(next) => {\n            setUncontrolledDate(next)\n            onSelect?.(next)\n          }}\n          disabled={disabled}\n        />\n      )}\n\n      {showFooter ? (\n        <div className=\"flex items-center justify-end gap-2\">\n          <Button type=\"Secondary\" onClick={handleClear}>\n            Clear\n          </Button>\n          <Button type=\"Primary\" onClick={onDone}>\n            Done\n          </Button>\n        </div>\n      ) : null}\n    </div>\n  )\n}\n\nexport { DatePicker }\nexport type { DatePickerProps }\n",
+      "type": "registry:ui",
+      "target": "orchid-ui/date-picker.tsx"
+    }
+  ],
+  "type": "registry:ui"
+}

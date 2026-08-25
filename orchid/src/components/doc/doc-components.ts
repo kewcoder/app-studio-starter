@@ -95,6 +95,36 @@ export const DOC_COMPONENTS = [
     description: 'Small, Big, and Float customer or beneficiary cards.',
   },
   {
+    to: '/checkbox' as const,
+    name: 'Checkbox',
+    description: 'Checkbox and group with vertical or horizontal alignment.',
+  },
+  {
+    to: '/radio-group' as const,
+    name: 'Radio Group',
+    description: 'Radio options with vertical or horizontal alignment.',
+  },
+  {
+    to: '/toggle' as const,
+    name: 'Toggle',
+    description: 'Switch control in Default and Small sizes.',
+  },
+  {
+    to: '/slider' as const,
+    name: 'Slider',
+    description: 'Range slider with min/max labels and drag value.',
+  },
+  {
+    to: '/date-picker' as const,
+    name: 'Date Picker',
+    description: 'Calendar with selected day and Clear / Done actions.',
+  },
+  {
+    to: '/empty-page' as const,
+    name: 'Empty Page',
+    description: 'Centered empty state with icon, title, description, and actions.',
+  },
+  {
     to: '/modal' as const,
     name: 'Modal',
     description: 'Dialog overlay with Small, Medium, and Default sizes.',

@@ -303,6 +303,111 @@
       ]
     },
     {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Checkbox",
+      "description": "Orchid UI checkbox and checkbox group.",
+      "dependencies": ["@base-ui/react", "class-variance-authority", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/checkbox.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/checkbox.tsx"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "title": "Radio Group",
+      "description": "Orchid UI radio group.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/radio-group.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/radio-group.tsx"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "title": "Toggle",
+      "description": "Orchid UI toggle switch.",
+      "dependencies": ["@base-ui/react", "class-variance-authority"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/toggle.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/toggle.tsx"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "title": "Slider",
+      "description": "Orchid UI range slider.",
+      "dependencies": ["@base-ui/react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/slider.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/slider.tsx"
+        }
+      ]
+    },
+    {
+      "name": "empty-page",
+      "type": "registry:ui",
+      "title": "Empty Page",
+      "description": "Orchid UI empty state with icon, title, description, and actions.",
+      "dependencies": ["class-variance-authority", "lucide-react"],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/components/ui/empty-page.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/empty-page.tsx"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "title": "Calendar",
+      "description": "Orchid UI calendar built from shadcn Calendar.",
+      "dependencies": ["react-day-picker", "lucide-react"],
+      "registryDependencies": ["button"],
+      "files": [
+        {
+          "path": "src/components/ui/calendar.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/calendar.tsx"
+        }
+      ]
+    },
+    {
+      "name": "date-picker",
+      "type": "registry:ui",
+      "title": "Date Picker",
+      "description": "Orchid UI date picker with calendar and footer actions.",
+      "dependencies": ["react-day-picker"],
+      "registryDependencies": ["button", "calendar"],
+      "files": [
+        {
+          "path": "src/components/ui/date-picker.tsx",
+          "type": "registry:ui",
+          "target": "orchid-ui/date-picker.tsx"
+        }
+      ]
+    },
+    {
       "name": "modal",
       "type": "registry:ui",
       "title": "Modal",

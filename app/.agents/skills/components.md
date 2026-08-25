@@ -58,6 +58,11 @@ import {
 } from '@/ui/group-icon'
 import { CopyTooltip } from '@/ui/copy-tooltip'
 import { CustomerCard } from '@/ui/customer-card'
+import { Checkbox, CheckboxGroup } from '@/ui/checkbox'
+import { Radio, RadioGroup } from '@/ui/radio-group'
+import { Toggle } from '@/ui/toggle'
+import { Slider } from '@/ui/slider'
+import { EmptyPage } from '@/ui/empty-page'
 import { Modal, ModalPopup, ModalTrigger } from '@/ui/modal'
 import {
   Accordion,
@@ -172,6 +177,30 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 ### Customer Card
 
 `src/orchid-ui/customer-card.tsx` — import `@/ui/customer-card`. Profile card. `variant`: `Small` | `Big` | `Float` | `Empty`. Pass `customer` (`name`, `email`, `phone` / `phone_number`, `address`, optional `src`). `active`, `loading`, `hover`, `edit`, `closable`, `chip`, `avatar`, `onAdd`, `onEdit`, `onClose`, `bottom`. `beneficiary` optional (bank chip + subtitle). Big/Float phone uses `CopyTooltip`.
+
+### Checkbox
+
+`src/orchid-ui/checkbox.tsx` — import `@/ui/checkbox`. `Checkbox` (`value`, `error`, `indeterminate`, `description`, `disabled`). Wrap several in `CheckboxGroup` (`label`, `alignment` `Vertical` | `Horizontal`, `value` / `defaultValue`).
+
+### Radio Group
+
+`src/orchid-ui/radio-group.tsx` — import `@/ui/radio-group`. Wrap `Radio` (`value`, `error`, `description`) in `RadioGroup` (`label`, `alignment` `Vertical` | `Horizontal`).
+
+### Toggle
+
+`src/orchid-ui/toggle.tsx` — import `@/ui/toggle`. Switch. `size`: `Default` | `Small`. `checked` / `defaultChecked`, `disabled`.
+
+### Date Picker
+
+`src/orchid-ui/date-picker.tsx` — import `@/ui/date-picker`. Calendar + Clear/Done (`Button`). `mode`: `single` | `range`. `selected` / `onSelect` or `range` / `onRangeSelect`. `disabled`, `showFooter`, `onClear`, `onDone`. Low-level grid: `@/ui/calendar`.
+
+### Slider
+
+`src/orchid-ui/slider.tsx` — import `@/ui/slider`. Track + thumb. `min` / `max` / `step`, `value` / `defaultValue`, `showRange` (0–100 labels), `showIndicator` (value while dragging).
+
+### Empty Page
+
+`src/orchid-ui/empty-page.tsx` — import `@/ui/empty-page`. Centered empty state. `type`: `Default` | `Search` | `Upgrade`. `title`, `description`, optional `icon`, `badge` (default on except Upgrade), `actions` (Buttons).
 
 ### Modal
 
