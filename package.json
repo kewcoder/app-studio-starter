@@ -2,14 +2,9 @@
   "name": "app-studio-starter",
   "private": true,
   "scripts": {
-    "dev": "bun run --cwd app dev",
-    "dev:orchid": "bun run --cwd orchid dev",
-    "build": "bun run --cwd app build",
-    "start": "bun run --cwd app start",
-    "lint": "bun run --cwd app lint",
-    "generate-routes": "bun run --cwd app generate-routes",
-    "generate-routes:orchid": "bun run --cwd orchid generate-routes",
-    "registry:build": "bun run --cwd orchid registry:build",
-    "preview:refresh": "bun run --cwd app preview:refresh"
+    "dev": "bun run --cwd orchid dev",
+    "generate-routes": "bun run --cwd orchid generate-routes",
+    "build": "bun run --cwd orchid registry:build",
+    "build:app": "bun run --cwd app build"
   }
 }
