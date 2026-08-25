@@ -3,7 +3,7 @@ import { Link, useRouterState } from '@tanstack/react-router'
 import { MonitorIcon, SmartphoneIcon, TabletIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
-import { EXAMPLE_CRUMBS } from './example-components'
+import { DOC_CRUMBS } from './doc-components'
 
 type Preview = 'Mobile' | 'Tablet' | 'Desktop'
 
@@ -52,7 +52,7 @@ const PREVIEW_OPTIONS: { id: Preview; label: string; icon: typeof MonitorIcon }[
 
 function DocHeader() {
   const pathname = useRouterState({ select: (s) => s.location.pathname })
-  const crumb = EXAMPLE_CRUMBS[pathname] ?? 'Not found'
+  const crumb = DOC_CRUMBS[pathname] ?? 'Not found'
   const { preview, setPreview } = useContext(PreviewContext)
 
   return (

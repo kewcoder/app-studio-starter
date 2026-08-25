@@ -1,5 +1,6 @@
 import { HeadContent, Outlet, Scripts, createRootRoute } from '@tanstack/react-router'
-import { DocHeader, PreviewCanvas, PreviewProvider } from '@/components/examples/doc-header'
+import { DocHeader, PreviewCanvas, PreviewProvider } from '@/components/doc/doc-header'
+import { DocSidebar } from '@/components/doc/doc-sidebar'
 
 import appCss from '../styles.css?url'
 
@@ -14,9 +15,12 @@ function RootLayout() {
     <PreviewProvider>
       <div className="flex min-h-dvh flex-col">
         <DocHeader />
-        <PreviewCanvas>
-          <Outlet />
-        </PreviewCanvas>
+        <div className="flex min-h-0 flex-1">
+          <DocSidebar />
+          <PreviewCanvas>
+            <Outlet />
+          </PreviewCanvas>
+        </div>
       </div>
     </PreviewProvider>
   )

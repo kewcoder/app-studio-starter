@@ -80,11 +80,6 @@
   --color-destructive-strong: var(--destructive-strong);
   --color-warning-chip-border: var(--warning-chip-border);
   --color-success-chip-border: var(--success-chip-border);
-  --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
-  --radius-2xl: calc(var(--radius) * 1.8);
 }
 
 :root {
@@ -166,7 +161,6 @@
   --secondary-button-pressed-stop: #fff;
   --secondary-button-disabled-start: #fcfcfc;
   --secondary-button-disabled-stop: #f7f7f7;
-  --radius: 0.5rem;
 }
 
 @layer base {

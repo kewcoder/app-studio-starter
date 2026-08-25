@@ -32,10 +32,10 @@ const BIG_COLORS = [
 
 function SnackbarExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col gap-12 px-6 py-8">
-        <div className="flex flex-col gap-4">
+      <section className="space-y-12 px-6 py-8">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Small
           </p>
@@ -52,7 +52,7 @@ function SnackbarExamplesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
           </p>
@@ -69,11 +69,11 @@ function SnackbarExamplesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Big · Bottom
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="space-y-4">
             {BIG_COLORS.map((item) => (
               <Snackbar key={item.color} color={item.color} size="Big" action="Bottom" onClose={() => {}}>
                 <SnackbarIcon>{item.icon}</SnackbarIcon>
@@ -99,11 +99,11 @@ function SnackbarExamplesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Big · Right
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="space-y-4">
             {BIG_COLORS.map((item) => (
               <Snackbar key={item.color} color={item.color} size="Big" action="Right" onClose={() => {}}>
                 <SnackbarIcon>{item.icon}</SnackbarIcon>

@@ -27,16 +27,16 @@ export const Route = createFileRoute('/list-item')({
 
 function ListItemExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col gap-16 px-8 py-12">
-        <div className="flex flex-col gap-3">
+      <section className="space-y-16 px-8 py-12">
+        <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             General
           </p>
           <ListItem>
             <ListItemBody>
-              <div className="flex flex-col gap-1">
+              <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <ListItemTitle>DBS Multiplier</ListItemTitle>
                   <Chip color="DarkBlue">Default</Chip>
@@ -54,7 +54,7 @@ function ListItemExamplesPage() {
           </ListItem>
           <ListItem>
             <ListItemBody>
-              <div className="flex flex-col gap-1">
+              <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <ListItemTitle>DBS Multiplier</ListItemTitle>
                   <Chip color="DarkBlue">Default</Chip>
@@ -81,7 +81,7 @@ function ListItemExamplesPage() {
           </ListItem>
           <ListItem selected>
             <ListItemBody>
-              <div className="flex flex-col gap-1">
+              <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2">
                   <ListItemTitle>DBS Multiplier</ListItemTitle>
                   <Chip color="DarkBlue">Default</Chip>
@@ -99,7 +99,7 @@ function ListItemExamplesPage() {
           </ListItem>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Webhook
           </p>
@@ -111,7 +111,7 @@ function ListItemExamplesPage() {
                 <span className="text-xs text-muted-foreground">Oct, 20 2023</span>
               </div>
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="space-y-2">
               <ListItemCopyRow
                 label="URL:"
                 value="https://webhook.site/a9ad4444-e1da-46d9-9d83-4da6cb602ab9"
@@ -138,7 +138,7 @@ function ListItemExamplesPage() {
                 }
               />
             </div>
-            <div className="flex flex-col gap-2">
+            <div className="space-y-2">
               <ListItemCopyRow
                 label="URL:"
                 value="https://webhook.site/a9ad4444-e1da-46d9-9d83-4da6cb602ab9"
@@ -151,7 +151,7 @@ function ListItemExamplesPage() {
           </ListItem>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Page
           </p>
@@ -207,7 +207,7 @@ function ListItemExamplesPage() {
           </ListItem>
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="space-y-3">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Integration
           </p>

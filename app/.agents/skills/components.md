@@ -101,7 +101,7 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### Accordion
 
-`src/orchid-ui/accordion.tsx` — import `@/ui/accordion`. Base UI Accordion. `multiple` default true.
+`src/orchid-ui/accordion.tsx` — import `@/ui/accordion`. Base UI Accordion. `multiple` default true. Title 14/1.5 medium, description 12/1.5, header padding 12×8, content 14/1.5 with 12 padding. Item gap 8. Closed: `dark-blue-soft`; open: border + gray header, white panel.
 
 ```tsx
 <Accordion defaultValue={['a']}>
@@ -142,7 +142,7 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### Clickable Option
 
-`src/orchid-ui/clickable-option.tsx` — import `@/ui/clickable-option`. Base UI Radio. Wrap in `ClickableOptionGroup` (`value` / `defaultValue`, `onValueChange`). Each `ClickableOption` needs `value`; optional `title`, `description`, `icon`.
+`src/orchid-ui/clickable-option.tsx` — import `@/ui/clickable-option`. Selectable cards, no radio dot. Wrap in `ClickableOptionGroup` (`value` / `defaultValue`, `onValueChange`, `alignment` `Vertical` | `Horizontal`). Each `ClickableOption` needs `value`; optional `title`, `description`, `icon`, `alignment` `Left` | `Center`, `iconAlign` `Left` | `Center`. Selected state is the primary border.
 
 ### Overview Item
 
@@ -154,7 +154,7 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 ### Page Title
 
-`src/orchid-ui/page-title.tsx` — import `@/ui/page-title`. Heading block. `title`, optional `description`, `chip`, `copyValue` (copy icon next to description), `loading`.
+`src/orchid-ui/page-title.tsx` — import `@/ui/page-title`. Heading row: title 18/24 medium + optional `chip` and `description` 14/20 on the left; `actions` (Buttons) on the right. Optional `copyValue`, `loading`. Put `BoxDetail` below, not inside.
 
 ### Box Detail
 

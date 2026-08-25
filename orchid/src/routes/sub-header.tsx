@@ -10,14 +10,14 @@ export const Route = createFileRoute('/sub-header')({
 
 function SubHeaderExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col gap-16 px-8 py-12">
-        <div className="flex flex-col gap-4">
+      <section className="space-y-16 px-8 py-12">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Back
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="space-y-4">
             <SubHeader
               left="Back"
               actions={
@@ -39,7 +39,7 @@ function SubHeaderExamplesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Close
           </p>

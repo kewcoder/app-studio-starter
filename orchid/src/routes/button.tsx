@@ -17,20 +17,20 @@ const STATES = [
 
 function ButtonExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col gap-16 px-8 py-12">
+      <section className="space-y-16 px-8 py-12">
         {SIZES.map((size) => (
-          <div key={size} className="flex flex-col gap-8">
+          <div key={size} className="space-y-8">
             <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
               {size}
             </p>
 
             {TYPES.map((type) => (
-              <div key={type} className="flex flex-col gap-4">
+              <div key={type} className="space-y-4">
                 <p className="text-sm font-medium text-foreground">{type}</p>
                 {STATES.map((state) => (
-                  <div key={state.label} className="flex flex-col gap-2">
+                  <div key={state.label} className="space-y-2">
                     <p className="text-xs text-muted-foreground">{state.label}</p>
                     <TypeCluster type={type} size={size} disabled={state.disabled} />
                   </div>

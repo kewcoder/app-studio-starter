@@ -29,52 +29,52 @@ const BENEFICIARY: CustomerCardData = {
 
 function CustomerCardExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col gap-16 px-8 py-12">
-        <div className="flex flex-col gap-4">
+      <section className="space-y-16 px-8 py-12">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Small
           </p>
           <CustomerCard variant="Small" customer={CUSTOMER} />
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Big
           </p>
           <CustomerCard variant="Big" customer={CUSTOMER} />
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Float
           </p>
           <CustomerCard variant="Float" customer={CUSTOMER} />
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Empty
           </p>
           <CustomerCard variant="Big" />
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Beneficiary
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="space-y-4">
             <CustomerCard variant="Small" beneficiary customer={BENEFICIARY} />
             <CustomerCard variant="Big" beneficiary customer={BENEFICIARY} />
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Edit and close
           </p>
-          <div className="flex flex-col gap-4">
+          <div className="space-y-4">
             <CustomerCard variant="Small" customer={CUSTOMER} edit hover />
             <CustomerCard variant="Small" customer={CUSTOMER} closable />
           </div>

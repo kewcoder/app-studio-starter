@@ -12,7 +12,7 @@ function Accordion({
   return (
     <AccordionPrimitive.Root
       data-slot="accordion"
-      className={cn('flex w-full flex-col gap-3', className)}
+      className={cn('flex w-full flex-col gap-2', className)}
       multiple={multiple}
       {...props}
     />
@@ -82,21 +82,21 @@ function AccordionTrigger({
             <span className="flex min-w-0 flex-1 flex-col items-start gap-1">
               <span className="flex min-w-0 items-center gap-2">
                 {title ? (
-                  <span className="truncate text-sm font-medium leading-[1.5] text-foreground">
+                  <span className="truncate text-[14px] font-medium leading-[1.5] text-foreground">
                     {title}
                   </span>
                 ) : null}
                 {label}
               </span>
               {description ? (
-                <span className="w-full truncate text-xs leading-[1.5] text-muted-foreground">
+                <span className="w-full truncate text-[12px] leading-[1.5] text-muted-foreground">
                   {description}
                 </span>
               ) : null}
             </span>
             {progress ? (
               <span className="flex min-w-0 flex-1 items-center gap-2">
-                <span className="shrink-0 text-xs leading-[1.5] whitespace-nowrap text-muted-foreground">
+                <span className="shrink-0 text-[12px] leading-[1.5] whitespace-nowrap text-muted-foreground">
                   {progress.label}
                 </span>
                 <span className="relative h-2 min-w-0 flex-1 overflow-clip rounded-full bg-background">
@@ -131,7 +131,7 @@ function AccordionPanel({ className, ...props }: AccordionPrimitive.Panel.Props)
     <AccordionPrimitive.Panel
       data-slot="accordion-panel"
       className={cn(
-        'border-t border-border p-3 text-sm leading-[1.5] text-foreground',
+        'border-t border-border p-3 text-[14px] leading-[1.5] text-foreground',
         className,
       )}
       {...props}

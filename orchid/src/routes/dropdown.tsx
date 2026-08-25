@@ -47,10 +47,10 @@ function OpenButton({ children }: { children: React.ReactNode }) {
 
 function DropdownExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col items-start gap-16 px-8 py-12">
-        <div className="flex flex-col items-start gap-6">
+      <section className="space-y-16 px-8 py-12">
+        <div className="space-y-6">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Dropdown Menu
           </p>
@@ -62,7 +62,7 @@ function DropdownExamplesPage() {
           </OpenButton>
         </div>
 
-        <div className="flex flex-col items-start gap-6">
+        <div className="space-y-6">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Dropdown
           </p>
@@ -83,7 +83,7 @@ function DropdownExamplesPage() {
           </OpenButton>
         </div>
 
-        <div className="flex flex-col items-start gap-6">
+        <div className="space-y-6">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Dropdown in Button
           </p>

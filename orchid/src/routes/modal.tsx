@@ -8,10 +8,10 @@ export const Route = createFileRoute('/modal')({
 
 function ModalExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
+    <main className="bg-background">
 
-      <section className="flex flex-col gap-16 px-8 py-12">
-        <div className="flex flex-col gap-4">
+      <section className="space-y-16 px-8 py-12">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Default
           </p>
@@ -25,7 +25,7 @@ function ModalExamplesPage() {
           </Modal>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Size
           </p>
@@ -63,7 +63,7 @@ function ModalExamplesPage() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Borderless
           </p>
@@ -79,7 +79,7 @@ function ModalExamplesPage() {
           </Modal>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             Persistent
           </p>
@@ -95,7 +95,7 @@ function ModalExamplesPage() {
           </Modal>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
             No footer
           </p>

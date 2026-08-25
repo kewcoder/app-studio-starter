@@ -1,4 +1,5 @@
 import { createFileRoute } from '@tanstack/react-router'
+import { MailIcon, MessageCircleIcon, SmartphoneIcon } from 'lucide-react'
 import { ClickableOption, ClickableOptionGroup } from '@/components/ui/clickable-option'
 
 export const Route = createFileRoute('/clickable-option')({
@@ -7,27 +8,72 @@ export const Route = createFileRoute('/clickable-option')({
 
 function ClickableOptionExamplesPage() {
   return (
-    <main className="min-h-dvh overflow-auto bg-background">
-
-      <section className="flex flex-col gap-16 px-8 py-12">
-        <div className="flex flex-col gap-4">
+    <main className="bg-background">
+      <section className="space-y-16 px-8 py-12">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Default
+            Left
           </p>
-          <ClickableOptionGroup defaultValue="a">
-            <ClickableOption value="a" title="Option" description="Description" />
-            <ClickableOption value="b" title="Option" description="Description" />
-            <ClickableOption value="c" title="Option" description="Description" />
+          <ClickableOptionGroup defaultValue="email">
+            <ClickableOption
+              value="email"
+              alignment="Left"
+              iconAlign="Left"
+              icon={<MailIcon />}
+              title="Email"
+              description="Send to the customer inbox"
+            />
+            <ClickableOption
+              value="sms"
+              alignment="Left"
+              iconAlign="Left"
+              icon={<SmartphoneIcon />}
+              title="SMS"
+              description="Send a text message"
+            />
+            <ClickableOption
+              value="chat"
+              alignment="Left"
+              iconAlign="Left"
+              icon={<MessageCircleIcon />}
+              title="Chat"
+              description="Open in messenger"
+            />
           </ClickableOptionGroup>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="space-y-4">
           <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
-            Disabled
+            Center
           </p>
-          <ClickableOptionGroup defaultValue="a" disabled>
-            <ClickableOption value="a" title="Option" description="Description" />
-            <ClickableOption value="b" title="Option" description="Description" />
+          <ClickableOptionGroup defaultValue="email" alignment="Horizontal">
+            <ClickableOption
+              value="email"
+              alignment="Center"
+              iconAlign="Center"
+              icon={<MailIcon />}
+              title="Email"
+              description="Inbox"
+              className="flex-1"
+            />
+            <ClickableOption
+              value="sms"
+              alignment="Center"
+              iconAlign="Center"
+              icon={<SmartphoneIcon />}
+              title="SMS"
+              description="Text"
+              className="flex-1"
+            />
+            <ClickableOption
+              value="chat"
+              alignment="Center"
+              iconAlign="Center"
+              icon={<MessageCircleIcon />}
+              title="Chat"
+              description="Messenger"
+              className="flex-1"
+            />
           </ClickableOptionGroup>
         </div>
       </section>
