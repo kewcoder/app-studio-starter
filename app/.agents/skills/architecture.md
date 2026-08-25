@@ -12,7 +12,7 @@ First screen: replace `src/routes/index.tsx`. Shared chrome (nav, sidebar) in `_
 |---|---|
 | `src/routes/` | Pages. `index.tsx` is `/`. Nested files become nested URLs. `createFileRoute`. |
 | `src/routes/__root.tsx` | Document shell, fonts, CSS, shared chrome |
-| `src/orchid-ui/` | UI kit. Import `@/orchid-ui/…` |
+| `src/orchid-ui/` | UI kit. Import `@/ui/…` |
 | `src/components/` | App-specific composites (nav, page chrome), not the UI kit |
 | `src/lib/db.ts` | Turso — **server only** |
 | `src/lib/migrate.ts` | Runs `migrations/*.sql` — **server only** |
@@ -22,7 +22,7 @@ First screen: replace `src/routes/index.tsx`. Shared chrome (nav, sidebar) in `_
 | `migrations/` | Additive SQL files `00N_name.sql` |
 | `src/routeTree.gen.ts` | Generated. Do not hand-edit; `bun run generate-routes` |
 
-Aliases: `@/*` and `#/*` both map to `src/*`. Prefer `@/orchid-ui` for UI, `#/lib/…` for db / hitpay / migrate (matches existing starter).
+Aliases: `@/*` and `#/*` map to `src/*`. UI kit: `@/ui/…` → `src/orchid-ui/`. Prefer `#/lib/…` for db / hitpay / migrate.
 
 The app is served under `/{APP_STUDIO_APP_ID}/`. Use TanStack `Link` / `createFileRoute` — never hardcode the app id in hrefs.
 

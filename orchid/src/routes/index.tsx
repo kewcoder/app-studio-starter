@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import { DocHeader } from '@/components/examples/doc-header'
+import { ListItem, ListItemBody, ListItemDescription, ListItemTitle } from '@/components/ui/list-item'
 
 export const Route = createFileRoute('/')({
   component: ExamplesIndexPage,
@@ -26,6 +27,21 @@ const COMPONENTS = [
     name: 'Chip',
     description: 'Global colors, Background/Border/Transparent, and user-type chips.',
   },
+  {
+    to: '/accordion' as const,
+    name: 'Accordion',
+    description: 'Expandable sections with title, optional description, label, and progress.',
+  },
+  {
+    to: '/progress-bar' as const,
+    name: 'Progress Bar',
+    description: 'Default and Small sizes with current/max label.',
+  },
+  {
+    to: '/list-item' as const,
+    name: 'List Item',
+    description: 'General, webhook, and integration list cards.',
+  },
 ]
 
 function ExamplesIndexPage() {
@@ -33,18 +49,22 @@ function ExamplesIndexPage() {
     <main className="min-h-dvh overflow-auto bg-background">
       <DocHeader crumb="Examples" />
 
-      <section className="mx-auto flex w-full max-w-3xl flex-col gap-3 px-6 py-8">
+      <section className="flex flex-col gap-3 px-8 py-12">
         {COMPONENTS.map((item) => (
-          <Link
-            key={item.to}
-            to={item.to}
-            className="flex items-center justify-between rounded-lg border border-border bg-card px-5 py-4 transition-colors hover:bg-muted"
-          >
-            <div>
-              <p className="text-sm font-medium text-foreground">{item.name}</p>
-              <p className="mt-1 text-xs text-muted-foreground">{item.description}</p>
-            </div>
-            <span className="text-sm text-primary">Open</span>
+          <Link key={item.to} to={item.to} className="block">
+            <ListItem>
+              <ListItemBody>
+                <div className="flex items-center justify-between gap-3">
+                  <div className="min-w-0">
+                    <ListItemTitle>{item.name}</ListItemTitle>
+                    <ListItemDescription className="text-muted-foreground">
+                      {item.description}
+                    </ListItemDescription>
+                  </div>
+                  <span className="shrink-0 text-sm text-primary">Open</span>
+                </div>
+              </ListItemBody>
+            </ListItem>
           </Link>
         ))}
       </section>

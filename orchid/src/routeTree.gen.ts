@@ -10,14 +10,22 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AccordionRouteImport } from './routes/accordion'
 import { Route as ButtonRouteImport } from './routes/button'
 import { Route as ChipRouteImport } from './routes/chip'
 import { Route as DropdownRouteImport } from './routes/dropdown'
+import { Route as ListItemRouteImport } from './routes/list-item'
+import { Route as ProgressBarRouteImport } from './routes/progress-bar'
 import { Route as SnackbarRouteImport } from './routes/snackbar'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccordionRoute = AccordionRouteImport.update({
+  id: '/accordion',
+  path: '/accordion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ButtonRoute = ButtonRouteImport.update({
@@ -35,6 +43,16 @@ const DropdownRoute = DropdownRouteImport.update({
   path: '/dropdown',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ListItemRoute = ListItemRouteImport.update({
+  id: '/list-item',
+  path: '/list-item',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProgressBarRoute = ProgressBarRouteImport.update({
+  id: '/progress-bar',
+  path: '/progress-bar',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SnackbarRoute = SnackbarRouteImport.update({
   id: '/snackbar',
   path: '/snackbar',
@@ -43,39 +61,76 @@ const SnackbarRoute = SnackbarRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/accordion': typeof AccordionRoute
   '/button': typeof ButtonRoute
   '/chip': typeof ChipRoute
   '/dropdown': typeof DropdownRoute
+  '/list-item': typeof ListItemRoute
+  '/progress-bar': typeof ProgressBarRoute
   '/snackbar': typeof SnackbarRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/accordion': typeof AccordionRoute
   '/button': typeof ButtonRoute
   '/chip': typeof ChipRoute
   '/dropdown': typeof DropdownRoute
+  '/list-item': typeof ListItemRoute
+  '/progress-bar': typeof ProgressBarRoute
   '/snackbar': typeof SnackbarRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/accordion': typeof AccordionRoute
   '/button': typeof ButtonRoute
   '/chip': typeof ChipRoute
   '/dropdown': typeof DropdownRoute
+  '/list-item': typeof ListItemRoute
+  '/progress-bar': typeof ProgressBarRoute
   '/snackbar': typeof SnackbarRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/button' | '/chip' | '/dropdown' | '/snackbar'
+  fullPaths:
+    | '/'
+    | '/accordion'
+    | '/button'
+    | '/chip'
+    | '/dropdown'
+    | '/list-item'
+    | '/progress-bar'
+    | '/snackbar'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/button' | '/chip' | '/dropdown' | '/snackbar'
-  id: '__root__' | '/' | '/button' | '/chip' | '/dropdown' | '/snackbar'
+  to:
+    | '/'
+    | '/accordion'
+    | '/button'
+    | '/chip'
+    | '/dropdown'
+    | '/list-item'
+    | '/progress-bar'
+    | '/snackbar'
+  id:
+    | '__root__'
+    | '/'
+    | '/accordion'
+    | '/button'
+    | '/chip'
+    | '/dropdown'
+    | '/list-item'
+    | '/progress-bar'
+    | '/snackbar'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AccordionRoute: typeof AccordionRoute
   ButtonRoute: typeof ButtonRoute
   ChipRoute: typeof ChipRoute
   DropdownRoute: typeof DropdownRoute
+  ListItemRoute: typeof ListItemRoute
+  ProgressBarRoute: typeof ProgressBarRoute
   SnackbarRoute: typeof SnackbarRoute
 }
 
@@ -86,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/accordion': {
+      id: '/accordion'
+      path: '/accordion'
+      fullPath: '/accordion'
+      preLoaderRoute: typeof AccordionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/button': {
@@ -109,6 +171,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DropdownRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/list-item': {
+      id: '/list-item'
+      path: '/list-item'
+      fullPath: '/list-item'
+      preLoaderRoute: typeof ListItemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/progress-bar': {
+      id: '/progress-bar'
+      path: '/progress-bar'
+      fullPath: '/progress-bar'
+      preLoaderRoute: typeof ProgressBarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/snackbar': {
       id: '/snackbar'
       path: '/snackbar'
@@ -121,9 +197,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AccordionRoute: AccordionRoute,
   ButtonRoute: ButtonRoute,
   ChipRoute: ChipRoute,
   DropdownRoute: DropdownRoute,
+  ListItemRoute: ListItemRoute,
+  ProgressBarRoute: ProgressBarRoute,
   SnackbarRoute: SnackbarRoute,
 }
 export const routeTree = rootRouteImport
