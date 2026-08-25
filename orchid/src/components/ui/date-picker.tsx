@@ -1,96 +1,133 @@
 import { useState } from 'react'
+import { format } from 'date-fns'
+import { CalendarIcon } from 'lucide-react'
 import type { DateRange, Matcher } from 'react-day-picker'
 
 import { cn } from '@/lib/utils'
 import { Button } from './button'
 import { Calendar } from './calendar'
+import { Popover, PopoverContent, PopoverTrigger } from './popover'
 
 type DatePickerProps = {
   className?: string
-  mode?: 'single' | 'range'
   selected?: Date
   defaultSelected?: Date
   onSelect?: (date: Date | undefined) => void
-  range?: DateRange
-  defaultRange?: DateRange
-  onRangeSelect?: (range: DateRange | undefined) => void
   disabled?: Matcher | Matcher[]
-  showFooter?: boolean
-  onClear?: () => void
-  onDone?: () => void
+  placeholder?: string
 }
 
 function DatePicker({
   className,
-  mode = 'single',
   selected,
   defaultSelected,
   onSelect,
-  range,
-  defaultRange,
-  onRangeSelect,
   disabled,
-  showFooter = true,
-  onClear,
-  onDone,
+  placeholder = 'Pick a date',
 }: DatePickerProps) {
-  const [uncontrolledDate, setUncontrolledDate] = useState<Date | undefined>(defaultSelected)
-  const [uncontrolledRange, setUncontrolledRange] = useState<DateRange | undefined>(defaultRange)
-
-  const date = selected ?? uncontrolledDate
-  const dateRange = range ?? uncontrolledRange
-
-  function handleClear() {
-    setUncontrolledDate(undefined)
-    setUncontrolledRange(undefined)
-    onSelect?.(undefined)
-    onRangeSelect?.(undefined)
-    onClear?.()
-  }
+  const [uncontrolled, setUncontrolled] = useState<Date | undefined>(defaultSelected)
+  const date = selected ?? uncontrolled
 
   return (
-    <div
-      data-slot="date-picker"
-      className={cn(
-        'flex w-fit flex-col gap-6 rounded-lg bg-background p-5 shadow-[0_3px_11px_rgba(38,42,50,0.09)]',
-        className,
-      )}
-    >
-      {mode === 'range' ? (
+    <Popover>
+      <PopoverTrigger
+        nativeButton
+        render={
+          <Button
+            type="Secondary"
+            style="Border"
+            data-empty={!date}
+            className={cn(
+              'w-[280px] justify-start text-left font-normal data-[empty=true]:text-muted-foreground',
+              className,
+            )}
+          />
+        }
+      >
+        <CalendarIcon />
+        {date ? format(date, 'PPP') : <span>{placeholder}</span>}
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0" align="start">
         <Calendar
-          mode="range"
-          selected={dateRange}
-          onSelect={(next) => {
-            setUncontrolledRange(next)
-            onRangeSelect?.(next)
-          }}
-          disabled={disabled}
-        />
-      ) : (
-        <Calendar
+          className="p-5"
           mode="single"
           selected={date}
           onSelect={(next) => {
-            setUncontrolledDate(next)
+            setUncontrolled(next)
             onSelect?.(next)
           }}
           disabled={disabled}
         />
-      )}
-
-      {showFooter ? (
-        <div className="flex items-center justify-end gap-2">
-          <Button type="Secondary" onClick={handleClear}>
-            Clear
-          </Button>
-          <Button type="Primary" onClick={onDone}>
-            Done
-          </Button>
-        </div>
-      ) : null}
-    </div>
+      </PopoverContent>
+    </Popover>
   )
 }
 
-export { DatePicker }
-export type { DatePickerProps }
+type DatePickerRangeProps = {
+  className?: string
+  selected?: DateRange
+  defaultSelected?: DateRange
+  onSelect?: (range: DateRange | undefined) => void
+  disabled?: Matcher | Matcher[]
+  placeholder?: string
+}
+
+function DatePickerRange({
+  className,
+  selected,
+  defaultSelected,
+  onSelect,
+  disabled,
+  placeholder = 'Pick a date',
+}: DatePickerRangeProps) {
+  const [uncontrolled, setUncontrolled] = useState<DateRange | undefined>(defaultSelected)
+  const range = selected ?? uncontrolled
+
+  return (
+    <Popover>
+      <PopoverTrigger
+        nativeButton
+        render={
+          <Button
+            type="Secondary"
+            style="Border"
+            data-empty={!range?.from}
+            className={cn(
+              'min-w-[280px] justify-start text-left font-normal data-[empty=true]:text-muted-foreground',
+              className,
+            )}
+          />
+        }
+      >
+        <CalendarIcon />
+        {range?.from ? (
+          range.to ? (
+            `${format(range.from, 'LLL dd, y')} - ${format(range.to, 'LLL dd, y')}`
+          ) : (
+            format(range.from, 'LLL dd, y')
+          )
+        ) : (
+          <span>{placeholder}</span>
+        )}
+      </PopoverTrigger>
+      <PopoverContent className="w-auto p-0" align="start">
+        <Calendar
+          className="p-5"
+          mode="range"
+          numberOfMonths={2}
+          showOutsideDays
+          defaultMonth={range?.from}
+          selected={range}
+          onSelect={(next) => {
+            setUncontrolled(next)
+            onSelect?.(next)
+          }}
+          disabled={disabled}
+        />
+      </PopoverContent>
+    </Popover>
+  )
+}
+
+export { DatePicker, DatePickerRange }
+export type { DatePickerProps, DatePickerRangeProps }

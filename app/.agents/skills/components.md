@@ -190,10 +190,6 @@ Base UI `Menu`. Typical: `DropdownMenu`, `DropdownMenuTrigger` (`nativeButton` +
 
 `src/orchid-ui/toggle.tsx` — import `@/ui/toggle`. Switch. `size`: `Default` | `Small`. `checked` / `defaultChecked`, `disabled`.
 
-### Date Picker
-
-`src/orchid-ui/date-picker.tsx` — import `@/ui/date-picker`. Calendar + Clear/Done (`Button`). `mode`: `single` | `range`. `selected` / `onSelect` or `range` / `onRangeSelect`. `disabled`, `showFooter`, `onClear`, `onDone`. Low-level grid: `@/ui/calendar`.
-
 ### Slider
 
 `src/orchid-ui/slider.tsx` — import `@/ui/slider`. Track + thumb. `min` / `max` / `step`, `value` / `defaultValue`, `showRange` (0–100 labels), `showIndicator` (value while dragging).

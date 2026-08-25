@@ -22,8 +22,10 @@ import { Route as CustomerCardRouteImport } from './routes/customer-card'
 import { Route as DatePickerRouteImport } from './routes/date-picker'
 import { Route as DropdownRouteImport } from './routes/dropdown'
 import { Route as EmptyPageRouteImport } from './routes/empty-page'
+import { Route as FieldRouteImport } from './routes/field'
 import { Route as GroupIconRouteImport } from './routes/group-icon'
 import { Route as InputStepperRouteImport } from './routes/input-stepper'
+import { Route as LabelRouteImport } from './routes/label'
 import { Route as ListItemRouteImport } from './routes/list-item'
 import { Route as ModalRouteImport } from './routes/modal'
 import { Route as OverviewItemRouteImport } from './routes/overview-item'
@@ -102,6 +104,11 @@ const EmptyPageRoute = EmptyPageRouteImport.update({
   path: '/empty-page',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FieldRoute = FieldRouteImport.update({
+  id: '/field',
+  path: '/field',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GroupIconRoute = GroupIconRouteImport.update({
   id: '/group-icon',
   path: '/group-icon',
@@ -110,6 +117,11 @@ const GroupIconRoute = GroupIconRouteImport.update({
 const InputStepperRoute = InputStepperRouteImport.update({
   id: '/input-stepper',
   path: '/input-stepper',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LabelRoute = LabelRouteImport.update({
+  id: '/label',
+  path: '/label',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ListItemRoute = ListItemRouteImport.update({
@@ -187,8 +199,10 @@ export interface FileRoutesByFullPath {
   '/date-picker': typeof DatePickerRoute
   '/dropdown': typeof DropdownRoute
   '/empty-page': typeof EmptyPageRoute
+  '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
   '/input-stepper': typeof InputStepperRoute
+  '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
   '/modal': typeof ModalRoute
   '/overview-item': typeof OverviewItemRoute
@@ -216,8 +230,10 @@ export interface FileRoutesByTo {
   '/date-picker': typeof DatePickerRoute
   '/dropdown': typeof DropdownRoute
   '/empty-page': typeof EmptyPageRoute
+  '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
   '/input-stepper': typeof InputStepperRoute
+  '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
   '/modal': typeof ModalRoute
   '/overview-item': typeof OverviewItemRoute
@@ -246,8 +262,10 @@ export interface FileRoutesById {
   '/date-picker': typeof DatePickerRoute
   '/dropdown': typeof DropdownRoute
   '/empty-page': typeof EmptyPageRoute
+  '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
   '/input-stepper': typeof InputStepperRoute
+  '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
   '/modal': typeof ModalRoute
   '/overview-item': typeof OverviewItemRoute
@@ -277,8 +295,10 @@ export interface FileRouteTypes {
     | '/date-picker'
     | '/dropdown'
     | '/empty-page'
+    | '/field'
     | '/group-icon'
     | '/input-stepper'
+    | '/label'
     | '/list-item'
     | '/modal'
     | '/overview-item'
@@ -306,8 +326,10 @@ export interface FileRouteTypes {
     | '/date-picker'
     | '/dropdown'
     | '/empty-page'
+    | '/field'
     | '/group-icon'
     | '/input-stepper'
+    | '/label'
     | '/list-item'
     | '/modal'
     | '/overview-item'
@@ -335,8 +357,10 @@ export interface FileRouteTypes {
     | '/date-picker'
     | '/dropdown'
     | '/empty-page'
+    | '/field'
     | '/group-icon'
     | '/input-stepper'
+    | '/label'
     | '/list-item'
     | '/modal'
     | '/overview-item'
@@ -365,8 +389,10 @@ export interface RootRouteChildren {
   DatePickerRoute: typeof DatePickerRoute
   DropdownRoute: typeof DropdownRoute
   EmptyPageRoute: typeof EmptyPageRoute
+  FieldRoute: typeof FieldRoute
   GroupIconRoute: typeof GroupIconRoute
   InputStepperRoute: typeof InputStepperRoute
+  LabelRoute: typeof LabelRoute
   ListItemRoute: typeof ListItemRoute
   ModalRoute: typeof ModalRoute
   OverviewItemRoute: typeof OverviewItemRoute
@@ -474,6 +500,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmptyPageRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/field': {
+      id: '/field'
+      path: '/field'
+      fullPath: '/field'
+      preLoaderRoute: typeof FieldRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/group-icon': {
       id: '/group-icon'
       path: '/group-icon'
@@ -486,6 +519,13 @@ declare module '@tanstack/react-router' {
       path: '/input-stepper'
       fullPath: '/input-stepper'
       preLoaderRoute: typeof InputStepperRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/label': {
+      id: '/label'
+      path: '/label'
+      fullPath: '/label'
+      preLoaderRoute: typeof LabelRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/list-item': {
@@ -589,8 +629,10 @@ const rootRouteChildren: RootRouteChildren = {
   DatePickerRoute: DatePickerRoute,
   DropdownRoute: DropdownRoute,
   EmptyPageRoute: EmptyPageRoute,
+  FieldRoute: FieldRoute,
   GroupIconRoute: GroupIconRoute,
   InputStepperRoute: InputStepperRoute,
+  LabelRoute: LabelRoute,
   ListItemRoute: ListItemRoute,
   ModalRoute: ModalRoute,
   OverviewItemRoute: OverviewItemRoute,

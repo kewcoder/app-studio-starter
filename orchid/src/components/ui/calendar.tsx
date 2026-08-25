@@ -28,6 +28,7 @@ function Calendar({
   ...props
 }: React.ComponentProps<typeof DayPicker>) {
   const defaultClassNames = getDefaultClassNames()
+  const isMultipleMonths = (props.numberOfMonths ?? 1) > 1
 
   return (
     <DayPicker
@@ -43,14 +44,21 @@ function Calendar({
       formatters={{
         formatMonthDropdown: (date) =>
           date.toLocaleString(locale?.code, { month: 'short' }),
+        formatWeekdayName: (date) =>
+          date.toLocaleDateString(locale?.code ?? 'en-US', { weekday: 'short' }).slice(0, 2),
         ...formatters,
       }}
       classNames={{
         root: cn('w-fit', defaultClassNames.root),
-        months: cn('relative flex flex-col gap-6', defaultClassNames.months),
+        months: cn(
+          'relative flex flex-col gap-6',
+          isMultipleMonths && 'sm:flex-row',
+          defaultClassNames.months,
+        ),
         month: cn('flex w-full flex-col gap-6', defaultClassNames.month),
         nav: cn(
-          'absolute inset-x-0 top-0 flex items-center justify-end gap-2',
+          'absolute inset-x-0 top-0 flex items-center gap-2',
+          isMultipleMonths ? 'justify-between' : 'justify-end',
           defaultClassNames.nav,
         ),
         button_previous: cn(
@@ -64,7 +72,8 @@ function Calendar({
           defaultClassNames.button_next,
         ),
         month_caption: cn(
-          'flex h-8 w-full items-center justify-start',
+          'flex h-8 w-full items-center',
+          isMultipleMonths ? 'justify-center px-8' : 'justify-start',
           defaultClassNames.month_caption,
         ),
         dropdowns: cn(
@@ -81,12 +90,12 @@ function Calendar({
           defaultClassNames.caption_label,
         ),
         month_grid: cn('w-full border-collapse', defaultClassNames.month_grid),
-        weekdays: cn('flex gap-2', defaultClassNames.weekdays),
+        weekdays: cn('flex', defaultClassNames.weekdays),
         weekday: cn(
           'size-8 text-xs font-medium text-foreground select-none',
           defaultClassNames.weekday,
         ),
-        week: cn('mt-2 flex w-full gap-2', defaultClassNames.week),
+        week: cn('mt-2 flex w-full', defaultClassNames.week),
         week_number_header: cn('w-8 select-none', defaultClassNames.week_number_header),
         week_number: cn(
           'text-xs text-muted-foreground select-none',
@@ -96,9 +105,15 @@ function Calendar({
           'group/day relative size-8 p-0 text-center select-none',
           defaultClassNames.day,
         ),
-        range_start: cn('bg-primary/10', defaultClassNames.range_start),
+        range_start: cn(
+          'relative after:absolute after:inset-y-0 after:left-1/2 after:right-0 after:bg-primary/10 [&.rdp-range_start.rdp-range_end]:after:hidden',
+          defaultClassNames.range_start,
+        ),
         range_middle: cn('bg-primary/10', defaultClassNames.range_middle),
-        range_end: cn('bg-primary/10', defaultClassNames.range_end),
+        range_end: cn(
+          'relative after:absolute after:inset-y-0 after:left-0 after:right-1/2 after:bg-primary/10 [&.rdp-range_start.rdp-range_end]:after:hidden',
+          defaultClassNames.range_end,
+        ),
         today: cn('text-foreground', defaultClassNames.today),
         outside: cn('text-muted-foreground opacity-35', defaultClassNames.outside),
         disabled: cn('text-foreground opacity-35', defaultClassNames.disabled),
@@ -170,9 +185,9 @@ function CalendarDayButton({
       className={cn(
         'relative isolate z-10 size-8 min-w-8 rounded-full border-0 p-0 text-sm font-normal text-foreground hover:bg-primary/10',
         'data-[selected-single=true]:bg-primary data-[selected-single=true]:text-primary-foreground data-[selected-single=true]:hover:bg-primary',
-        'data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground',
-        'data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground',
-        'data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-primary/10 data-[range-middle=true]:text-foreground',
+        'data-[range-start=true]:bg-primary data-[range-start=true]:text-primary-foreground data-[range-start=true]:hover:bg-primary',
+        'data-[range-end=true]:bg-primary data-[range-end=true]:text-primary-foreground data-[range-end=true]:hover:bg-primary',
+        'data-[range-middle=true]:rounded-none data-[range-middle=true]:bg-transparent data-[range-middle=true]:text-foreground data-[range-middle=true]:hover:bg-transparent',
         defaultClassNames.day,
         className,
       )}

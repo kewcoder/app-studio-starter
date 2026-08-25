@@ -117,7 +117,17 @@ export const DOC_COMPONENTS = [
   {
     to: '/date-picker' as const,
     name: 'Date Picker',
-    description: 'Calendar with selected day and Clear / Done actions.',
+    description: 'Popover + Calendar, same composition as shadcn Date Picker.',
+  },
+  {
+    to: '/label' as const,
+    name: 'Label',
+    description: 'Accessible label for form controls.',
+  },
+  {
+    to: '/field' as const,
+    name: 'Field',
+    description: 'Compose label, description, and error around a control.',
   },
   {
     to: '/empty-page' as const,
