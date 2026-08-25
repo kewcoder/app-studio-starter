@@ -24,6 +24,7 @@ import { Route as DropdownRouteImport } from './routes/dropdown'
 import { Route as EmptyPageRouteImport } from './routes/empty-page'
 import { Route as FieldRouteImport } from './routes/field'
 import { Route as GroupIconRouteImport } from './routes/group-icon'
+import { Route as InputRouteImport } from './routes/input'
 import { Route as InputStepperRouteImport } from './routes/input-stepper'
 import { Route as LabelRouteImport } from './routes/label'
 import { Route as ListItemRouteImport } from './routes/list-item'
@@ -32,10 +33,12 @@ import { Route as OverviewItemRouteImport } from './routes/overview-item'
 import { Route as PageTitleRouteImport } from './routes/page-title'
 import { Route as ProgressBarRouteImport } from './routes/progress-bar'
 import { Route as RadioGroupRouteImport } from './routes/radio-group'
+import { Route as SelectRouteImport } from './routes/select'
 import { Route as SliderRouteImport } from './routes/slider'
 import { Route as SnackbarRouteImport } from './routes/snackbar'
 import { Route as SubHeaderRouteImport } from './routes/sub-header'
 import { Route as TabMenuRouteImport } from './routes/tab-menu'
+import { Route as TextareaRouteImport } from './routes/textarea'
 import { Route as ToggleRouteImport } from './routes/toggle'
 import { Route as TooltipRouteImport } from './routes/tooltip'
 
@@ -114,6 +117,11 @@ const GroupIconRoute = GroupIconRouteImport.update({
   path: '/group-icon',
   getParentRoute: () => rootRouteImport,
 } as any)
+const InputRoute = InputRouteImport.update({
+  id: '/input',
+  path: '/input',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const InputStepperRoute = InputStepperRouteImport.update({
   id: '/input-stepper',
   path: '/input-stepper',
@@ -154,6 +162,11 @@ const RadioGroupRoute = RadioGroupRouteImport.update({
   path: '/radio-group',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SelectRoute = SelectRouteImport.update({
+  id: '/select',
+  path: '/select',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SliderRoute = SliderRouteImport.update({
   id: '/slider',
   path: '/slider',
@@ -172,6 +185,11 @@ const SubHeaderRoute = SubHeaderRouteImport.update({
 const TabMenuRoute = TabMenuRouteImport.update({
   id: '/tab-menu',
   path: '/tab-menu',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TextareaRoute = TextareaRouteImport.update({
+  id: '/textarea',
+  path: '/textarea',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ToggleRoute = ToggleRouteImport.update({
@@ -201,6 +219,7 @@ export interface FileRoutesByFullPath {
   '/empty-page': typeof EmptyPageRoute
   '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
+  '/input': typeof InputRoute
   '/input-stepper': typeof InputStepperRoute
   '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
@@ -209,10 +228,12 @@ export interface FileRoutesByFullPath {
   '/page-title': typeof PageTitleRoute
   '/progress-bar': typeof ProgressBarRoute
   '/radio-group': typeof RadioGroupRoute
+  '/select': typeof SelectRoute
   '/slider': typeof SliderRoute
   '/snackbar': typeof SnackbarRoute
   '/sub-header': typeof SubHeaderRoute
   '/tab-menu': typeof TabMenuRoute
+  '/textarea': typeof TextareaRoute
   '/toggle': typeof ToggleRoute
   '/tooltip': typeof TooltipRoute
 }
@@ -232,6 +253,7 @@ export interface FileRoutesByTo {
   '/empty-page': typeof EmptyPageRoute
   '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
+  '/input': typeof InputRoute
   '/input-stepper': typeof InputStepperRoute
   '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
@@ -240,10 +262,12 @@ export interface FileRoutesByTo {
   '/page-title': typeof PageTitleRoute
   '/progress-bar': typeof ProgressBarRoute
   '/radio-group': typeof RadioGroupRoute
+  '/select': typeof SelectRoute
   '/slider': typeof SliderRoute
   '/snackbar': typeof SnackbarRoute
   '/sub-header': typeof SubHeaderRoute
   '/tab-menu': typeof TabMenuRoute
+  '/textarea': typeof TextareaRoute
   '/toggle': typeof ToggleRoute
   '/tooltip': typeof TooltipRoute
 }
@@ -264,6 +288,7 @@ export interface FileRoutesById {
   '/empty-page': typeof EmptyPageRoute
   '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
+  '/input': typeof InputRoute
   '/input-stepper': typeof InputStepperRoute
   '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
@@ -272,10 +297,12 @@ export interface FileRoutesById {
   '/page-title': typeof PageTitleRoute
   '/progress-bar': typeof ProgressBarRoute
   '/radio-group': typeof RadioGroupRoute
+  '/select': typeof SelectRoute
   '/slider': typeof SliderRoute
   '/snackbar': typeof SnackbarRoute
   '/sub-header': typeof SubHeaderRoute
   '/tab-menu': typeof TabMenuRoute
+  '/textarea': typeof TextareaRoute
   '/toggle': typeof ToggleRoute
   '/tooltip': typeof TooltipRoute
 }
@@ -297,6 +324,7 @@ export interface FileRouteTypes {
     | '/empty-page'
     | '/field'
     | '/group-icon'
+    | '/input'
     | '/input-stepper'
     | '/label'
     | '/list-item'
@@ -305,10 +333,12 @@ export interface FileRouteTypes {
     | '/page-title'
     | '/progress-bar'
     | '/radio-group'
+    | '/select'
     | '/slider'
     | '/snackbar'
     | '/sub-header'
     | '/tab-menu'
+    | '/textarea'
     | '/toggle'
     | '/tooltip'
   fileRoutesByTo: FileRoutesByTo
@@ -328,6 +358,7 @@ export interface FileRouteTypes {
     | '/empty-page'
     | '/field'
     | '/group-icon'
+    | '/input'
     | '/input-stepper'
     | '/label'
     | '/list-item'
@@ -336,10 +367,12 @@ export interface FileRouteTypes {
     | '/page-title'
     | '/progress-bar'
     | '/radio-group'
+    | '/select'
     | '/slider'
     | '/snackbar'
     | '/sub-header'
     | '/tab-menu'
+    | '/textarea'
     | '/toggle'
     | '/tooltip'
   id:
@@ -359,6 +392,7 @@ export interface FileRouteTypes {
     | '/empty-page'
     | '/field'
     | '/group-icon'
+    | '/input'
     | '/input-stepper'
     | '/label'
     | '/list-item'
@@ -367,10 +401,12 @@ export interface FileRouteTypes {
     | '/page-title'
     | '/progress-bar'
     | '/radio-group'
+    | '/select'
     | '/slider'
     | '/snackbar'
     | '/sub-header'
     | '/tab-menu'
+    | '/textarea'
     | '/toggle'
     | '/tooltip'
   fileRoutesById: FileRoutesById
@@ -391,6 +427,7 @@ export interface RootRouteChildren {
   EmptyPageRoute: typeof EmptyPageRoute
   FieldRoute: typeof FieldRoute
   GroupIconRoute: typeof GroupIconRoute
+  InputRoute: typeof InputRoute
   InputStepperRoute: typeof InputStepperRoute
   LabelRoute: typeof LabelRoute
   ListItemRoute: typeof ListItemRoute
@@ -399,10 +436,12 @@ export interface RootRouteChildren {
   PageTitleRoute: typeof PageTitleRoute
   ProgressBarRoute: typeof ProgressBarRoute
   RadioGroupRoute: typeof RadioGroupRoute
+  SelectRoute: typeof SelectRoute
   SliderRoute: typeof SliderRoute
   SnackbarRoute: typeof SnackbarRoute
   SubHeaderRoute: typeof SubHeaderRoute
   TabMenuRoute: typeof TabMenuRoute
+  TextareaRoute: typeof TextareaRoute
   ToggleRoute: typeof ToggleRoute
   TooltipRoute: typeof TooltipRoute
 }
@@ -514,6 +553,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GroupIconRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/input': {
+      id: '/input'
+      path: '/input'
+      fullPath: '/input'
+      preLoaderRoute: typeof InputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/input-stepper': {
       id: '/input-stepper'
       path: '/input-stepper'
@@ -570,6 +616,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RadioGroupRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/select': {
+      id: '/select'
+      path: '/select'
+      fullPath: '/select'
+      preLoaderRoute: typeof SelectRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/slider': {
       id: '/slider'
       path: '/slider'
@@ -596,6 +649,13 @@ declare module '@tanstack/react-router' {
       path: '/tab-menu'
       fullPath: '/tab-menu'
       preLoaderRoute: typeof TabMenuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/textarea': {
+      id: '/textarea'
+      path: '/textarea'
+      fullPath: '/textarea'
+      preLoaderRoute: typeof TextareaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/toggle': {
@@ -631,6 +691,7 @@ const rootRouteChildren: RootRouteChildren = {
   EmptyPageRoute: EmptyPageRoute,
   FieldRoute: FieldRoute,
   GroupIconRoute: GroupIconRoute,
+  InputRoute: InputRoute,
   InputStepperRoute: InputStepperRoute,
   LabelRoute: LabelRoute,
   ListItemRoute: ListItemRoute,
@@ -639,10 +700,12 @@ const rootRouteChildren: RootRouteChildren = {
   PageTitleRoute: PageTitleRoute,
   ProgressBarRoute: ProgressBarRoute,
   RadioGroupRoute: RadioGroupRoute,
+  SelectRoute: SelectRoute,
   SliderRoute: SliderRoute,
   SnackbarRoute: SnackbarRoute,
   SubHeaderRoute: SubHeaderRoute,
   TabMenuRoute: TabMenuRoute,
+  TextareaRoute: TextareaRoute,
   ToggleRoute: ToggleRoute,
   TooltipRoute: TooltipRoute,
 }

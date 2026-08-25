@@ -17,6 +17,7 @@ First screen: replace `src/routes/index.tsx`. Shared chrome (nav, sidebar) in `_
 | `src/lib/db.ts` | Turso — **server only** |
 | `src/lib/migrate.ts` | Runs `migrations/*.sql` — **server only** |
 | `src/lib/hitpay.ts` | Signed-in user / roles / members — **browser only** |
+| `src/lib/form.ts` | TanStack Form — `useAppForm` / field helpers. **App only**, not the Orchid kit |
 | `src/lib/utils.ts` | `cn()` |
 | `src/styles.css` | Design tokens |
 | `migrations/` | Additive SQL files `00N_name.sql` |

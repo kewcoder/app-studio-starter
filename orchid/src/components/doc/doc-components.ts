@@ -130,6 +130,21 @@ export const DOC_COMPONENTS = [
     description: 'Compose label, description, and error around a control.',
   },
   {
+    to: '/input' as const,
+    name: 'Input',
+    description: 'Text field with default, leading icon, error, and disabled.',
+  },
+  {
+    to: '/textarea' as const,
+    name: 'Textarea',
+    description: 'Multiline field with hint and error.',
+  },
+  {
+    to: '/select' as const,
+    name: 'Select',
+    description: 'Dropdown select with groups and placeholder.',
+  },
+  {
     to: '/empty-page' as const,
     name: 'Empty Page',
     description: 'Centered empty state with icon, title, description, and actions.',

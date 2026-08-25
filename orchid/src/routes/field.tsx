@@ -8,9 +8,9 @@ import {
   FieldGroup,
   FieldLabel,
   FieldLegend,
-  FieldSeparator,
   FieldSet,
 } from '@/components/ui/field'
+import { Input } from '@/components/ui/input'
 import { Toggle } from '@/components/ui/toggle'
 
 export const Route = createFileRoute('/field')({
@@ -20,41 +20,30 @@ export const Route = createFileRoute('/field')({
 function FieldExamplesPage() {
   return (
     <DocExamplePage to="/field">
-      <div className="grid max-w-xl gap-10">
-        <FieldSet>
-          <FieldLegend>Profile</FieldLegend>
-          <FieldDescription>This appears on invoices and emails.</FieldDescription>
-          <FieldGroup>
-            <Field>
-              <FieldLabel>Full name</FieldLabel>
-              <FieldDescription>Input control will sit here.</FieldDescription>
-            </Field>
-            <Field data-invalid>
-              <FieldLabel>Username</FieldLabel>
-              <FieldError>Choose another username.</FieldError>
-            </Field>
-            <Field orientation="horizontal">
-              <Toggle />
-              <FieldLabel>Subscribe to the newsletter</FieldLabel>
-            </Field>
-          </FieldGroup>
-        </FieldSet>
-
-        <FieldSet>
-          <FieldLegend variant="label">Notifications</FieldLegend>
-          <FieldGroup>
-            <Field orientation="horizontal">
-              <Checkbox />
-              <FieldLabel>Email alerts</FieldLabel>
-            </Field>
-            <FieldSeparator>Or</FieldSeparator>
-            <Field orientation="horizontal">
-              <Checkbox />
-              <FieldLabel>Push notifications</FieldLabel>
-            </Field>
-          </FieldGroup>
-        </FieldSet>
-      </div>
+      <FieldSet className="max-w-sm">
+        <FieldLegend>Profile</FieldLegend>
+        <FieldDescription>This appears on invoices and emails.</FieldDescription>
+        <FieldGroup>
+          <Field>
+            <FieldLabel htmlFor="full-name">Full name</FieldLabel>
+            <Input id="full-name" placeholder="Placeholder" />
+            <FieldDescription>This is a hint text to help user.</FieldDescription>
+          </Field>
+          <Field data-invalid>
+            <FieldLabel htmlFor="username">Username</FieldLabel>
+            <Input id="username" placeholder="Placeholder" aria-invalid />
+            <FieldError>Choose another username.</FieldError>
+          </Field>
+          <Field orientation="horizontal">
+            <Toggle />
+            <FieldLabel>Subscribe to the newsletter</FieldLabel>
+          </Field>
+          <Field orientation="horizontal">
+            <Checkbox />
+            <FieldLabel>Email alerts</FieldLabel>
+          </Field>
+        </FieldGroup>
+      </FieldSet>
     </DocExamplePage>
   )
 }
