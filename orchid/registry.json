@@ -456,9 +456,9 @@
       "name": "select",
       "type": "registry:ui",
       "title": "Select",
-      "description": "Orchid UI select from shadcn Select.",
+      "description": "Orchid UI select and multiple select from Figma.",
       "dependencies": ["@base-ui/react", "lucide-react"],
-      "registryDependencies": [],
+      "registryDependencies": ["chip", "popover"],
       "files": [
         {
           "path": "src/components/ui/select.tsx",
@@ -473,7 +473,7 @@
       "title": "Input Group",
       "description": "Orchid UI input group from shadcn Input Group.",
       "dependencies": ["class-variance-authority"],
-      "registryDependencies": ["button", "input", "textarea"],
+      "registryDependencies": ["button", "input", "select", "textarea"],
       "files": [
         {
           "path": "src/components/ui/input-group.tsx",

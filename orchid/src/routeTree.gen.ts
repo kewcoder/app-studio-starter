@@ -25,6 +25,7 @@ import { Route as EmptyPageRouteImport } from './routes/empty-page'
 import { Route as FieldRouteImport } from './routes/field'
 import { Route as GroupIconRouteImport } from './routes/group-icon'
 import { Route as InputRouteImport } from './routes/input'
+import { Route as InputGroupRouteImport } from './routes/input-group'
 import { Route as InputStepperRouteImport } from './routes/input-stepper'
 import { Route as LabelRouteImport } from './routes/label'
 import { Route as ListItemRouteImport } from './routes/list-item'
@@ -120,6 +121,11 @@ const GroupIconRoute = GroupIconRouteImport.update({
 const InputRoute = InputRouteImport.update({
   id: '/input',
   path: '/input',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InputGroupRoute = InputGroupRouteImport.update({
+  id: '/input-group',
+  path: '/input-group',
   getParentRoute: () => rootRouteImport,
 } as any)
 const InputStepperRoute = InputStepperRouteImport.update({
@@ -220,6 +226,7 @@ export interface FileRoutesByFullPath {
   '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
   '/input': typeof InputRoute
+  '/input-group': typeof InputGroupRoute
   '/input-stepper': typeof InputStepperRoute
   '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
@@ -254,6 +261,7 @@ export interface FileRoutesByTo {
   '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
   '/input': typeof InputRoute
+  '/input-group': typeof InputGroupRoute
   '/input-stepper': typeof InputStepperRoute
   '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
@@ -289,6 +297,7 @@ export interface FileRoutesById {
   '/field': typeof FieldRoute
   '/group-icon': typeof GroupIconRoute
   '/input': typeof InputRoute
+  '/input-group': typeof InputGroupRoute
   '/input-stepper': typeof InputStepperRoute
   '/label': typeof LabelRoute
   '/list-item': typeof ListItemRoute
@@ -325,6 +334,7 @@ export interface FileRouteTypes {
     | '/field'
     | '/group-icon'
     | '/input'
+    | '/input-group'
     | '/input-stepper'
     | '/label'
     | '/list-item'
@@ -359,6 +369,7 @@ export interface FileRouteTypes {
     | '/field'
     | '/group-icon'
     | '/input'
+    | '/input-group'
     | '/input-stepper'
     | '/label'
     | '/list-item'
@@ -393,6 +404,7 @@ export interface FileRouteTypes {
     | '/field'
     | '/group-icon'
     | '/input'
+    | '/input-group'
     | '/input-stepper'
     | '/label'
     | '/list-item'
@@ -428,6 +440,7 @@ export interface RootRouteChildren {
   FieldRoute: typeof FieldRoute
   GroupIconRoute: typeof GroupIconRoute
   InputRoute: typeof InputRoute
+  InputGroupRoute: typeof InputGroupRoute
   InputStepperRoute: typeof InputStepperRoute
   LabelRoute: typeof LabelRoute
   ListItemRoute: typeof ListItemRoute
@@ -558,6 +571,13 @@ declare module '@tanstack/react-router' {
       path: '/input'
       fullPath: '/input'
       preLoaderRoute: typeof InputRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/input-group': {
+      id: '/input-group'
+      path: '/input-group'
+      fullPath: '/input-group'
+      preLoaderRoute: typeof InputGroupRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/input-stepper': {
@@ -692,6 +712,7 @@ const rootRouteChildren: RootRouteChildren = {
   FieldRoute: FieldRoute,
   GroupIconRoute: GroupIconRoute,
   InputRoute: InputRoute,
+  InputGroupRoute: InputGroupRoute,
   InputStepperRoute: InputStepperRoute,
   LabelRoute: LabelRoute,
   ListItemRoute: ListItemRoute,

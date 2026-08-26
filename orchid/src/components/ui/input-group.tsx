@@ -6,15 +6,34 @@ import { Button } from './button'
 import { Input } from './input'
 import { Textarea } from './textarea'
 
-function InputGroup({ className, ...props }: ComponentProps<'div'>) {
+const inputGroupVariants = cva(
+  'group/input-group relative flex h-9 w-full min-w-0 items-center outline-none has-disabled:opacity-50 has-[>textarea]:h-auto',
+  {
+    variants: {
+      variant: {
+        Default:
+          'rounded-lg border border-border bg-background shadow-[0_1px_3px_rgba(0,0,0,0.04),0_1.5px_1.5px_rgba(0,0,0,0.09)] has-disabled:bg-muted has-[[data-slot=input-group-control]:focus-visible]:border-primary has-[[data-slot=input-group-control]:focus-visible]:shadow-[0_0_0_3px_var(--info-border)] has-[[data-slot][aria-invalid=true]]:border-destructive has-[[data-slot][aria-invalid=true]]:shadow-[0_0_0_3px_var(--destructive-border)]',
+        Underline:
+          'rounded-none border-0 border-b border-border bg-transparent shadow-none has-[[data-slot=input-group-control]:focus-visible]:border-primary has-[[data-slot][aria-invalid=true]]:border-destructive',
+      },
+    },
+    defaultVariants: {
+      variant: 'Default',
+    },
+  },
+)
+
+function InputGroup({
+  className,
+  variant = 'Default',
+  ...props
+}: ComponentProps<'div'> & VariantProps<typeof inputGroupVariants>) {
   return (
     <div
       data-slot="input-group"
+      data-variant={variant}
       role="group"
-      className={cn(
-        'group/input-group relative flex h-9 w-full min-w-0 items-center rounded-lg border border-border bg-background shadow-[0_1px_3px_rgba(0,0,0,0.04),0_1.5px_1.5px_rgba(0,0,0,0.09)] outline-none has-disabled:bg-muted has-disabled:opacity-50 has-[[data-slot=input-group-control]:focus-visible]:border-primary has-[[data-slot=input-group-control]:focus-visible]:shadow-[0_0_0_3px_var(--info-border)] has-[[data-slot][aria-invalid=true]]:border-destructive has-[[data-slot][aria-invalid=true]]:shadow-[0_0_0_3px_var(--destructive-border)] has-[>textarea]:h-auto',
-        className,
-      )}
+      className={cn(inputGroupVariants({ variant }), className)}
       {...props}
     />
   )
@@ -25,8 +44,8 @@ const inputGroupAddonVariants = cva(
   {
     variants: {
       align: {
-        'inline-start': 'order-first pl-2',
-        'inline-end': 'order-last pr-2',
+        'inline-start': 'order-first px-2',
+        'inline-end': 'order-last px-2',
         'block-start': 'order-first w-full justify-start px-2 pt-2',
         'block-end': 'order-last w-full justify-start px-2 pb-2',
       },
@@ -49,7 +68,7 @@ function InputGroupAddon({
       data-align={align}
       className={cn(inputGroupAddonVariants({ align }), className)}
       onClick={(event) => {
-        if ((event.target as HTMLElement).closest('button')) {
+        if ((event.target as HTMLElement).closest('button, [data-slot=select-trigger]')) {
           return
         }
         event.currentTarget.parentElement?.querySelector('input')?.focus()
@@ -74,6 +93,16 @@ function InputGroupButton({
       style={style}
       size={size}
       className={cn('shadow-none', className)}
+      {...props}
+    />
+  )
+}
+
+function InputGroupSeparator({ className, ...props }: ComponentProps<'div'>) {
+  return (
+    <div
+      data-slot="input-group-separator"
+      className={cn('w-px self-stretch bg-border', className)}
       {...props}
     />
   )
@@ -121,7 +150,8 @@ export {
   InputGroup,
   InputGroupAddon,
   InputGroupButton,
-  InputGroupText,
   InputGroupInput,
+  InputGroupSeparator,
+  InputGroupText,
   InputGroupTextarea,
 }

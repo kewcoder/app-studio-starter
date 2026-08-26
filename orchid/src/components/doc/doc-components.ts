@@ -112,7 +112,7 @@ export const DOC_COMPONENTS = [
   {
     to: '/slider' as const,
     name: 'Slider',
-    description: 'Range slider with min/max labels and drag value.',
+    description: 'Single or range slider; pass an array for two or more thumbs.',
   },
   {
     to: '/date-picker' as const,
@@ -135,6 +135,11 @@ export const DOC_COMPONENTS = [
     description: 'Text field with default, leading icon, error, and disabled.',
   },
   {
+    to: '/input-group' as const,
+    name: 'Input Group',
+    description: 'Input combined with select or prefix, including currency.',
+  },
+  {
     to: '/textarea' as const,
     name: 'Textarea',
     description: 'Multiline field with hint and error.',
@@ -142,7 +147,7 @@ export const DOC_COMPONENTS = [
   {
     to: '/select' as const,
     name: 'Select',
-    description: 'Dropdown select with groups and placeholder.',
+    description: 'Single and multiple select with chips, groups, and error.',
   },
   {
     to: '/empty-page' as const,

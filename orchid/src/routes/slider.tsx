@@ -23,6 +23,20 @@ function SliderExamplesPage() {
           </p>
           <Slider defaultValue={78} />
         </div>
+
+        <div className="space-y-3">
+          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            Range
+          </p>
+          <Slider defaultValue={[25, 75]} />
+        </div>
+
+        <div className="space-y-3">
+          <p className="text-xs font-medium tracking-[0.18em] text-muted-foreground uppercase">
+            Multiple thumbs
+          </p>
+          <Slider defaultValue={[20, 40, 70]} showIndicator={false} />
+        </div>
       </div>
     </DocExamplePage>
   )

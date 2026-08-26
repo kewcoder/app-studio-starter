@@ -31,7 +31,6 @@ function DatePicker({
   return (
     <Popover>
       <PopoverTrigger
-        nativeButton
         render={
           <Button
             type="Secondary"
@@ -86,7 +85,6 @@ function DatePickerRange({
   return (
     <Popover>
       <PopoverTrigger
-        nativeButton
         render={
           <Button
             type="Secondary"

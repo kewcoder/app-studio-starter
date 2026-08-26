@@ -22,7 +22,6 @@ function Tip({
   return (
     <Tooltip>
       <TooltipTrigger
-        nativeButton
         className="inline-flex w-fit"
         render={
           <Button type="Secondary" size="Small">

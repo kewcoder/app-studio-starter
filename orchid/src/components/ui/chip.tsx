@@ -116,7 +116,15 @@ function Chip({
           type="button"
           data-slot="chip-remove"
           aria-label="Remove"
-          onClick={onRemove}
+          onPointerDown={(event) => {
+            event.preventDefault()
+            event.stopPropagation()
+          }}
+          onClick={(event) => {
+            event.preventDefault()
+            event.stopPropagation()
+            onRemove()
+          }}
           className="-mr-0.5 inline-flex size-4.5 items-center justify-center text-current outline-none"
         >
           <XCircleIcon className="size-4.5" />
@@ -126,7 +134,10 @@ function Chip({
   )
 }
 
-const USER_CHIP: Record<'Owner' | 'Admin' | 'Manager' | 'Cashier', ChipColor> = {
+const USER_CHIP: Record<
+  'Owner' | 'Admin' | 'Manager' | 'Cashier',
+  NonNullable<VariantProps<typeof chipVariants>['color']>
+> = {
   Owner: 'Blue',
   Admin: 'Purple',
   Manager: 'DarkBlue',

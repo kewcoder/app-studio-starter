@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from 'react'
-import { EllipsisIcon, PencilIcon, Trash2Icon } from 'lucide-react'
+import { EllipsisIcon } from 'lucide-react'
 
 import { cn } from '@/lib/utils'
 import { CopyTooltip } from './copy-tooltip'

@@ -20,7 +20,6 @@ function CopyTooltip({
       <Tooltip open={copied} onOpenChange={(open) => !open && setCopied(false)}>
         <TooltipTrigger
           delay={0}
-          nativeButton
           render={
             <button
               type="button"
